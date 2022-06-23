@@ -21,7 +21,6 @@ class CreateAtrativosTable extends Migration
             $table->string('observacoes',250);
             $table->integer('capacidade');
             $table->time('duracao');
-            $table->date('data');
             $table->timestamps();
         });
     }
