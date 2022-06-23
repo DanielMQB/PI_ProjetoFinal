@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UnidadeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
+    Rota de Unidades de conservação
+*/
+
+// Indice de unidades
+Route::get('/unidades',[UnidadeController::class,'index'])->name('unidades.index');
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
