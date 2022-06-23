@@ -15,6 +15,13 @@ class CreateAtrativosTable extends Migration
     {
         Schema::create('atrativos', function (Blueprint $table) {
             $table->id();
+            $table->string('nome',60);
+            $table->string('descricao',250);
+            $table->string('tipo',60);
+            $table->string('observacoes',250);
+            $table->integer('capacidade');
+            $table->time('duracao');
+            $table->date('data');
             $table->timestamps();
         });
     }
