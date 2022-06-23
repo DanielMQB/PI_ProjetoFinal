@@ -13,7 +13,7 @@ class UpdateIngressoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateIngressoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'quantidade' => 'required | Integer',
+            'tipoIngresso' => 'required | max:25 | min:3',
+            'nomeComprador' => 'required | max:100 | min: 3',
+            'parque_id' => 'required | Integer'
         ];
     }
 }

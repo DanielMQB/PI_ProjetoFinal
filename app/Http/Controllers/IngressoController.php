@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ingresso;
 use App\Http\Requests\StoreIngressoRequest;
 use App\Http\Requests\UpdateIngressoRequest;
+use App\Http\Requests\StoreUpdateIngresso;
 
 class IngressoController extends Controller
 {
@@ -26,7 +27,7 @@ class IngressoController extends Controller
      */
     public function create()
     {
-        //
+        return view('ingressos.create');
     }
 
     /**
@@ -37,7 +38,9 @@ class IngressoController extends Controller
      */
     public function store(StoreIngressoRequest $request)
     {
-        //
+        Ingresso::create($request->all());
+        return redirect()
+                ->route('ingressos.index');
     }
 
     /**
