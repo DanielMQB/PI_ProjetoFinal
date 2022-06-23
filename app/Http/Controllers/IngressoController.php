@@ -49,9 +49,15 @@ class IngressoController extends Controller
      * @param  \App\Models\Ingresso  $ingresso
      * @return \Illuminate\Http\Response
      */
-    public function show(Ingresso $ingresso)
+    public function show(Ingresso $ingresso, $id)
     {
-        //
+        $ingresso = Ingresso::find($id);
+        if(!$ingresso) {
+            return redirect()
+                    ->route('ingressos.index')
+                    ->with('message', 'Ingresso não foi encontrado');
+        }
+        return view('ingressos.show', compact('ingresso'));
     }
 
     /**
@@ -83,8 +89,18 @@ class IngressoController extends Controller
      * @param  \App\Models\Ingresso  $ingresso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ingresso $ingresso)
+    public function destroy(Ingresso $ingresso, $id)
     {
-        //
-    }
+        $ingresso = Ingresso::find($id);
+        if(!$ingresso) {
+            return redirect()
+                    ->route('ingressos.index')
+                    ->with('message', 'Ingresso não foi encontrado');
+        }
+        $ingresso->delete();
+        return redirect()
+                ->route('ingressos.index')
+                ->with('message', 'Ingresso foi deletado')
+    ;
+}
 }
