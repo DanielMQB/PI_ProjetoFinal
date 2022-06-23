@@ -9,4 +9,9 @@ class Unidade extends Model
 {
     use HasFactory;
     protected $fillable = ['nome','quantidade','valorIngresso','descricao','endereco'];
+
+    public function atrativo()
+    {
+        return $this->belongsTo(Atrativo::class);
+    }
 }

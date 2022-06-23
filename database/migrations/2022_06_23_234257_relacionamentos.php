@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIngressosTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateIngressosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingressos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo',30);
-            $table->date('data');
-            $table->string('nome',60);
-            $table->string('status',20);
-            $table->timestamps();
+        Schema::table('atrativos', function (Blueprint $table){
+            $table->foreignId('unidade_id')->constrained('unidades');
         });
     }
 
@@ -30,6 +25,10 @@ class CreateIngressosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingressos');
+        Schema::table('atrativos',function (Blueprint $table){
+            $table->dropForeign('unidade_id')
+            ->constrained('unidades')
+            ->ondelete('cascade');
+        });
     }
 };
