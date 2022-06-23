@@ -24,4 +24,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
+Route::get('/ingressos/{id}', [IngressoController::class, 'show'])->name('ingressos.show');
+Route::delete('/ingressos/{id}', [IngressoController::class, 'destroy'])->name('ingressos.destroy');
 Route::resource('/ingressos', IngressoController::class);
