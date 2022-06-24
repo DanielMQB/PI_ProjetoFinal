@@ -51,9 +51,13 @@ class IngressoController extends Controller
      */
     public function show(Ingresso $ingresso)
     {
-        return view('ingressos.show', [
-            'ingresso' => Ingresso::findOrFail($ingresso)
-        ]);
+        $ingresso = Ingresso::find($ingresso);
+        if(!$ingresso) {
+            return redirect()
+                    ->route('ingressos.index')
+                    ->with('message', 'Ingresso não foi encontrado');
+        }
+        return view('ingressos.show', compact('ingresso'));
     }
 
     /**

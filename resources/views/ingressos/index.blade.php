@@ -9,11 +9,11 @@
 <body>
     <h1>Lista de Ingressos</h1>
 
-    <hr>
-
     <p>
         <a href="{{route('ingressos.create')}}">Inserir novo ingresso</a>
     </p>
+
+    <hr>
 
     <br>
 
