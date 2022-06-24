@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngressoController;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/ingressos/{id}', [IngressoController::class, 'show'])->name('ingressos.show');
-Route::delete('/ingressos/{id}', [IngressoController::class, 'destroy'])->name('ingressos.destroy');
-Route::resource('/ingressos', IngressoController::class);
+Route::resource('/ingressos', IngressoController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('ingressos.index');
+        })->middleware(['auth']);

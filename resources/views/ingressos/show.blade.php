@@ -9,6 +9,10 @@
 <body>
     <h1>Detalhes do ingresso</h1>
 
+    <a href="{{'ingressos.index'}}">Voltar</a>
+
+    <hr>
+
     <div>
         <ul>
             <li>Quantidade: {{$ingresso->quantidade}}</li>

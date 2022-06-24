@@ -25,7 +25,7 @@
     <div>
         @foreach ($ingressos as $ingresso)
             <p>
-                {{$ingresso->nomeComprador}}
+                #{{$ingresso->id}} {{$ingresso->nomeComprador}} [{{$ingresso->tipoIngresso}}]
                 <a href="{{route('ingressos.show', $ingresso->id)}}">Ver detalhes</a>
             </p>
         @endforeach

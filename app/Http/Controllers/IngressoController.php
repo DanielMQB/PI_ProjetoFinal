@@ -49,15 +49,11 @@ class IngressoController extends Controller
      * @param  \App\Models\Ingresso  $ingresso
      * @return \Illuminate\Http\Response
      */
-    public function show(Ingresso $ingresso, $id)
+    public function show(Ingresso $ingresso)
     {
-        $ingresso = Ingresso::find($id);
-        if(!$ingresso) {
-            return redirect()
-                    ->route('ingressos.index')
-                    ->with('message', 'Ingresso não foi encontrado');
-        }
-        return view('ingressos.show', compact('ingresso'));
+        return view('ingressos.show', [
+            'ingresso' => Ingresso::findOrFail($ingresso)
+        ]);
     }
 
     /**
@@ -89,9 +85,9 @@ class IngressoController extends Controller
      * @param  \App\Models\Ingresso  $ingresso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ingresso $ingresso, $id)
+    public function destroy(Ingresso $ingresso)
     {
-        $ingresso = Ingresso::find($id);
+        $ingresso = Ingresso::find($ingresso);
         if(!$ingresso) {
             return redirect()
                     ->route('ingressos.index')
