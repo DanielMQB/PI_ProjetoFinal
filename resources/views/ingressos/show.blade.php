@@ -9,22 +9,26 @@
 <body>
     <h1>Detalhes do ingresso</h1>
 
-    <a href="{{'ingressos.index'}}">Voltar</a>
+    <div>
+        <a href="{{route('ingressos.index')}}">Voltar</a>
+    </div>
 
     <hr>
 
     <div>
-        <ul>
-            <li>Quantidade: {{$ingresso->quantidade}}</li>
-            <li>Tipo de ingresso: {{$ingresso->tipoIngresso}}</li>
-            <li>Nome do Comprador: {{$ingresso->nomeComprador}}</li>
-            <li>Parque: {{$ingresso->parque_id}}</li>
-        </ul>
+        {{-- <form action="{{route('ingressos.show', $ingresso->id)}}">
+            <ul>
+                <li>Quantidade: {{$ingresso->quantidade}}</li>
+                <li>Tipo de ingresso: {{$ingresso->tipoIngresso}}</li>
+                <li>Nome do Comprador: {{$ingresso->nomeComprador}}</li>
+                <li>Parque: {{$ingresso->parque_id}}</li>
+            </ul>
+        </form>
         <form action="{{route('ingressos.destroy', $ingresso->id)}}" method="POST">
             @csrf
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Deletar Ingresso</button>
-        </form>
+        </form> --}}
     </div>
 </body>
 </html>

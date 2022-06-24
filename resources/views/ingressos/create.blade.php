@@ -8,6 +8,13 @@
 </head>
 <body>
     <h1>Adicionar novo ingresso</h1>
+
+    <div>
+        <a href="{{route('ingressos.index')}}">Voltar</a>
+    </div>
+
+    <hr>
+
     <div>
         <form method="POST" action="{{route('ingressos.store')}}">
             <input type="hidden" name="_token" value="{{csrf_token()}}">

@@ -26,7 +26,8 @@
         @foreach ($ingressos as $ingresso)
             <p>
                 #{{$ingresso->id}} {{$ingresso->nomeComprador}} [{{$ingresso->tipoIngresso}}]
-                <a href="{{route('ingressos.show', $ingresso->id)}}">Ver detalhes</a>
+                <a href="{{route('ingressos.show', $ingresso->id)}}">Ver detalhes </a>
+                <a href="{{route('ingressos.edit', $ingresso->id)}}"> Editar</a>
             </p>
         @endforeach
     </div>

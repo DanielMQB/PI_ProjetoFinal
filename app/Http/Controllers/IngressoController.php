@@ -68,7 +68,13 @@ class IngressoController extends Controller
      */
     public function edit(Ingresso $ingresso)
     {
-        //
+        $ingresso = Ingresso::find($ingresso);
+        if(!$ingresso) {
+            return redirect()
+                    ->route('ingressos.index')
+                    ->with('message', 'Ingresso não encontrado');
+        }
+        return view('ingressos.edit', compact('ingresso'));
     }
 
     /**
@@ -80,7 +86,16 @@ class IngressoController extends Controller
      */
     public function update(UpdateIngressoRequest $request, Ingresso $ingresso)
     {
-        //
+        $ingresso = Ingresso::find($ingresso);
+        if(!$ingresso) {
+            return redirect()
+                    ->route('ingressos.index')
+                    ->with('message', 'Ingresso não encontrado');
+        }
+        $ingresso->update($request->all());
+        return redirect()
+                ->route('ingressos.index')
+                ->with('message', 'Ingresso editado');
     }
 
     /**
