@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Request\StoreUpdateUser;
+use App\Http\Requests\StoreUpdateUser as RequestsStoreUpdateUser;
 
 class UsuarioController extends Controller
 {
@@ -14,13 +15,13 @@ class UsuarioController extends Controller
    }
    public function show($id){
     $usuario= User::find($id);
-    if($usuario){
+    if(!$usuario){
         return redirect()
             ->route('usuarios.index')
             ->with('message','Usuario não foi Encontrado!!!!!!!!!!!!!');
 
     }
-    return view('usuarios.show',compact('Usuario'));
+    return view('usuarios.show',compact('usuario'));
    }
 
    public function destroy($id){
@@ -49,7 +50,7 @@ class UsuarioController extends Controller
    }
 
 
-   public function update(StoreUpdateUser $request, $id){
+   public function update(RequestsStoreUpdateUser $request, $id){
         $usuario= User::find($id);
             if(!$usuario){
                 return redirect()

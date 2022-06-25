@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index');
 
 //--------------------SHOW---------------
-Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuario.show');
+Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuarios.show');
 
 //----------------------DESTROYYY--------------------
 Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');

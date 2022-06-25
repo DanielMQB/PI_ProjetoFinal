@@ -21,8 +21,8 @@
     <p>
         {{$usuario->name}}
 
-        <a href="{{route('usuarios.show', $usuario->$id) }}">[Revelar Detalhes] </a>
-        <a href="{{ route('usuarios.edit', $usuario->id) }}">[](Editar)</a>
+        <a href="{{ route('usuarios.show', $usuario->id) }}">Revelar Detalhes </a>
+        <a href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
     </p>
 
     @if(session('message'))
