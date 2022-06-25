@@ -11,10 +11,42 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Lista de Ingressos</h1>
+    <nav class="navbar bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Parque da Serra do Mar</a>
+            <div class="navbar-brand">
+                @if (Route::has('login'))
+                    <div class="row">
+                        <div class="col">
+                            @auth
+                                <a href="{{ url('/dashboard') }}" class="btn btn-dark shadow-lg" role="button">Dashboard</a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-dark shadow-lg" role="button">Login</a>
 
-        <a class="btn btn-primary shadow-lg" href="{{route('ingressos.create')}}" role="button">Adicionar ingresso</a>
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}" class="btn btn-dark shadow-lg" role="button">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h1>Lista de Ingressos</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <a class="btn btn-primary shadow-lg" href="{{ route('ingressos.create') }}" role="button">Adicionar
+            ingresso</a>
     </div>
 
     <hr>
@@ -22,47 +54,51 @@
     <br>
 
 
-    <div class="container">
+    <div class="container-fluid">
         @if (session('message'))
             <div>
                 {{ session('message') }}
             </div>
         @endif
         <div>
-
-                <p>
-                    <table class="table table-hover">
-                        <thead style="background-color: #D7DBDD">
-                            <tr>
-                                <th scope="col" class="h4" style="text-align: center">ID</th>
-                                <th scope="col" class="h4" style="text-align: left">Nome do Comprador</th>
-                                <th scope="col" class="h4" style="text-align: center">Tipo de Ingresso</th>
-                                <th scope="col" class="h4" style="text-align: center">Quantidade</th>
-                                <th scope="col" class="h4" style="text-align: center">Parque</th>
-                                <th scope="col" class="h4" style="text-align: center">Opções</th>
-                            </tr>
-                        </thead>
-                        @foreach ($ingressos as $ingresso)
-                        <tbody>
-                            <tr>
-                                <th scope="col" class="h3" style="text-align: center">{{$ingresso->id}}</th>
-                                <td class="col h3" style="text-align: left">{{$ingresso->nomeComprador}}</td>
-                                @if ($ingresso->tipoIngresso == "VIP")
-                                    <td class="col h3" style="text-align: center; color: #ffc107">{{$ingresso->tipoIngresso}}</td>
-                                @else
-                                    <td class="col h3" style="text-align: center">{{$ingresso->tipoIngresso}}</td>
-                                @endif
-                                <td class="col h3" style="text-align: center">{{$ingresso->quantidade}}</td>
-                                <td class="col h3" style="text-align: center">{{$ingresso->parque_id}}</td>
-                                <td class="col" style="text-align: center">
-                                    <a class="btn btn-light shadow-sm" href="{{ route('ingressos.show', $ingresso->id) }}" role="button" style="text-align: center">Ver detalhes</a>
-                                    <a class="btn btn-light shadow-sm" href="{{ route('ingressos.edit', $ingresso->id) }}" role="button" style="text-align: center">Editar</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                        @endforeach
-                    </table>
-                </p>
+            <p>
+            <table class="table table-hover">
+                <thead style="background-color: #F4F6F7">
+                    <tr>
+                        <th scope="col" class="h4" style="text-align: center">ID</th>
+                        <th scope="col" class="h4" style="text-align: left">Nome do Comprador</th>
+                        <th scope="col" class="h4" style="text-align: center">Tipo de Ingresso</th>
+                        <th scope="col" class="h4" style="text-align: center">Quantidade</th>
+                        <th scope="col" class="h4" style="text-align: center">Parque</th>
+                        <th scope="col" class="h4" style="text-align: center">Opções</th>
+                    </tr>
+                </thead>
+                @foreach ($ingressos as $ingresso)
+                    <tbody>
+                        <tr>
+                            <th scope="col" class="h3" style="text-align: center">{{ $ingresso->id }}</th>
+                            <td class="col h3" style="text-align: left">{{ $ingresso->nomeComprador }}</td>
+                            @if ($ingresso->tipoIngresso == 'VIP')
+                                <td class="col h3" style="text-align: center; color: #ffc107">
+                                    {{ $ingresso->tipoIngresso }}</td>
+                            @else
+                                <td class="col h3" style="text-align: center">{{ $ingresso->tipoIngresso }}</td>
+                            @endif
+                            <td class="col h3" style="text-align: center">{{ $ingresso->quantidade }}</td>
+                            <td class="col h3" style="text-align: center">{{ $ingresso->parque_id }}</td>
+                            <td class="col" style="text-align: center">
+                                <a class="btn btn-light shadow-sm"
+                                    href="{{ route('ingressos.show', $ingresso->id) }}" role="button"
+                                    style="text-align: center">Ver detalhes</a>
+                                <a class="btn btn-light shadow-sm"
+                                    href="{{ route('ingressos.edit', $ingresso->id) }}" role="button"
+                                    style="text-align: center">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                @endforeach
+            </table>
+            </p>
         </div>
     </div>
 
