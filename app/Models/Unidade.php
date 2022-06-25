@@ -12,6 +12,11 @@ class Unidade extends Model
 
     public function atrativo()
     {
-        return $this->belongsTo(Atrativo::class);
+        return $this->hasMany(Atrativo::class);
+    }
+
+    public function dias()
+    {
+        return $this->belongsToMany(Dia::class);
     }
 }

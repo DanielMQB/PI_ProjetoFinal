@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::table('atrativos', function (Blueprint $table){
-            $table->foreignId('unidade_id')->constrained('unidades');
+            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
+        });
+
+        Schema::create('unidades_dias', function (Blueprint $table){
+            $table->id();
+            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
+            $table->foreignId('dia_id')->constrained('dias')->ondelete('cascade');
         });
     }
 
@@ -30,5 +36,7 @@ return new class extends Migration
             ->constrained('unidades')
             ->ondelete('cascade');
         });
+
+        Schema::dropIfExists('unidades_dias');
     }
 };
