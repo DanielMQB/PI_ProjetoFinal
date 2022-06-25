@@ -19,4 +19,9 @@ class Unidade extends Model
     {
         return $this->belongsToMany(Dia::class);
     }
+
+    public function ingresso()
+    {
+        return $this->hasOne(Ingresso::class);
+    }
 }

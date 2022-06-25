@@ -9,4 +9,14 @@ class Ingresso extends Model
 {
     use HasFactory;
     protected $fillable = ['tipo','data','nome','status'];
+
+    public function unidade()
+    {
+        return $this->belongsTo(Unidade::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

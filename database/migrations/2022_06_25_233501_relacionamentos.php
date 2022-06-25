@@ -17,6 +17,11 @@ return new class extends Migration
             $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
         });
 
+        Schema::table('ingressos', function (Blueprint $table){
+            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->ondelete('cascade');
+        });
+
         Schema::create('unidades_dias', function (Blueprint $table){
             $table->id();
             $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
@@ -35,6 +40,11 @@ return new class extends Migration
             $table->dropForeign('unidade_id')
             ->constrained('unidades')
             ->ondelete('cascade');
+        });
+
+        Schema::table('ingressos',function (Blueprint $table){
+            $table->dropForeign('unidade_id')->constrained('unidades')->ondelete('cascade');
+            $table->dropForeign('user_id')->constrained('users')->ondelete('cascade');
         });
 
         Schema::dropIfExists('unidades_dias');
