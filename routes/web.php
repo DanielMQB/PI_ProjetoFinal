@@ -21,7 +21,20 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
+//--------------------------INDEX----------------------
 Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index');
+
+//--------------------SHOW---------------
+Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuario.show');
+
+//----------------------DESTROYYY--------------------
+Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+
+//-------------------------EDIT-------------------------------------------
+
+Route::get('/usuarios/edit/{id}',[UsuarioController::class, 'edit'])-> name('usuarios.edit');
+
+//------------------------UPDATE --------------------------
+Route::put('/usuarios/{id}',[UsuarioController::class, 'update'])->name('usuarios.update');
 
 require __DIR__.'/auth.php';

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,28 @@
     <title>Usuarios</title>
 </head>
 <body>
-    Usuarios
-    @foreach (@$usuarios as @usuario )
 
-    <p>Nome : {{@usuario->nome}}</p>
-    <p>Email : {{@usuario->email}}</p>
-    <p>Senha : {{@usuario->senha}}</p>
-    <hr>
+    @if(session('message'))
+        <div>
+            {{session('message')}}
+        </div>
+    @endif
+
+    <h1>Usuarios</h1>
+
+    @foreach ($usuarios as $usuario )
+    <p>
+        {{$usuario->name}}
+
+        <a href="{{route('usuarios.show', $usuario->$id) }}">[Revelar Detalhes] </a>
+        <a href="{{ route('usuarios.edit', $usuario->id) }}">[](Editar)</a>
+    </p>
+
+    @if(session('message'))
+        <div>
+            {{session('message')}}
+        </div>
+    @endif
 
     @endforeach
 </body>
