@@ -16,7 +16,7 @@
     <hr>
 
     <div>
-        {{-- <form action="{{route('ingressos.show', $ingresso->id)}}">
+        <form action="{{route('ingressos.show', $ingresso->id)}}">
             <ul>
                 <li>Quantidade: {{$ingresso->quantidade}}</li>
                 <li>Tipo de ingresso: {{$ingresso->tipoIngresso}}</li>
@@ -28,7 +28,7 @@
             @csrf
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Deletar Ingresso</button>
-        </form> --}}
+        </form>
     </div>
 </body>
 </html>

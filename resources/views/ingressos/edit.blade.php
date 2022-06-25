@@ -22,7 +22,7 @@
     @endif
 
     <div>
-        {{-- <form action="{{route('ingressos.update', $ingresso->id)}}" method="POST">
+        <form action="{{route('ingressos.update', $ingresso->id)}}" method="POST">
             @method('PUT')
             @csrf
             <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade" value="{{$ingresso->quantidade}}"></p>
@@ -30,7 +30,7 @@
             <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador" placeholder="Digite o nome do comprador" value="{{$ingresso->nomeComprador}}"></p>
             <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque" value="{{$ingresso->parque_id}}"></p>
             <p><button type="submit">Enviar</button></p>
-        </form> --}}
+        </form>
     </div>
 </body>
 </html>
