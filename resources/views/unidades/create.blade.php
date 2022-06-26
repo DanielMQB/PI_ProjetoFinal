@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ingressos</title>
+    <title>Adicionar Unidade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -71,64 +71,33 @@
 
     <br>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <h1>Lista de Ingressos</h1>
-            </div>
-        </div>
-    </div>
+    <h1 class="container-fluid">Adicionar nova unidade</h1>
 
     <hr>
 
-    <br>
-
-
     <div class="container-fluid">
-        @if (session('message'))
-            <div>
-                {{ session('message') }}
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">Nova Unidade</h5>
+                <form method="POST" action="{{ route('unidades.store') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <p>Nome da Unidade: <input type="text" name="nome" id="nome" placeholder="Digite aqui"
+                            value="{{ old('nome') }}"></p>
+                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
+                            value="{{ old('quantidade') }}"></p>
+                    <p>Valor do Ingresso: <input type="text" name="valorIngresso" id="valorIngresso"
+                            placeholder="Digite aqui" value="{{ old('valorIngresso') }}"></p>
+                    <p>Descrição: <input type="text" name="descricao" id="descricao" placeholder="Digite aqui"
+                            value="{{ old('descricao') }}"></p>
+                    <p>Endereço: <input type="text" name="endereco" id="endereco" placeholder="Digite aqui"
+                            value="{{ old('endereco') }}"></p>
+                    <div class="row">
+                        <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
+                        <a class="card-link btn btn-secondary shadow col" href="{{ route('unidades.index') }}"
+                            role="button">Cancelar</a>
+                    </div>
+                </form>
             </div>
-        @endif
-        <div>
-            <p>
-            <table class="table table-hover">
-                <thead style="background-color: #F4F6F7">
-                    <tr>
-                        <th scope="col" class="h4" style="text-align: center">ID</th>
-                        <th scope="col" class="h4" style="text-align: left">Nome do Comprador</th>
-                        <th scope="col" class="h4" style="text-align: center">Tipo de Ingresso</th>
-                        <th scope="col" class="h4" style="text-align: center">Quantidade</th>
-                        <th scope="col" class="h4" style="text-align: center">Data</th>
-                        <th scope="col" class="h4" style="text-align: center">Opções</th>
-                    </tr>
-                </thead>
-                @foreach ($ingressos as $ingresso)
-                    <tbody>
-                        <tr>
-                            <th scope="col" class="h3" style="text-align: center">{{ $ingresso->id }}</th>
-                            <td class="col h3" style="text-align: left">{{ $ingresso->nomeComprador }}</td>
-                            @if ($ingresso->tipoIngresso == 'VIP')
-                                <td class="col h3" style="text-align: center; color: #ffc107">
-                                    {{ $ingresso->tipoIngresso }}</td>
-                            @else
-                                <td class="col h3" style="text-align: center">{{ $ingresso->tipoIngresso }}</td>
-                            @endif
-                            <td class="col h3" style="text-align: center">{{ $ingresso->quantidade }}</td>
-                            <td class="col h3" style="text-align: center">{{ $ingresso->data }}</td>
-                            <td class="col" style="text-align: center">
-                                <a class="btn btn-light shadow-sm"
-                                    href="{{ route('ingressos.show', $ingresso->id) }}" role="button"
-                                    style="text-align: center">Ver detalhes</a>
-                                <a class="btn btn-light shadow-sm"
-                                    href="{{ route('ingressos.edit', $ingresso->id) }}" role="button"
-                                    style="text-align: center">Editar</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                @endforeach
-            </table>
-            </p>
         </div>
     </div>
 

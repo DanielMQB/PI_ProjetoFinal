@@ -28,7 +28,7 @@
 
             <!-- CPF -->
             <div class="mt-4">
-                <x-label for="cpf" :value="__('cpf')" />
+                <x-label for="cpf" :value="__('CPF')" />
 
                 <x-input id="cpf" class="block mt-1 w-full"
                                 type="text"
@@ -37,7 +37,7 @@
 
             <!-- Telefone -->
             <div>
-                <x-label for="telefone" :value="__('telefone')" />
+                <x-label for="telefone" :value="__('Telefone')" />
 
                 <x-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" :value="old('telefone')" required autofocus />
             </div>

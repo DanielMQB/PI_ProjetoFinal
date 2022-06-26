@@ -20,12 +20,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{{ route('ingressos.index') }}">Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ingressos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
+                            </li>
+                            <li><a href="{{ route('ingressos.create') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ingressos.create') }}">Adicionar Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidades
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('unidades.index') }}" class="dropdown-item">Lista de Unidades</a>
+                            </li>
+                            <li><a href="{{ route('unidades.create') }}" class="dropdown-item">Adicionar Unidade</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('login'))
@@ -76,17 +93,24 @@
                 <form action="{{ route('ingressos.update', $ingresso->id) }}" method="POST">
                     @method('PUT')
                     @csrf
-                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
-                            value="{{ $ingresso->quantidade }}"></p>
+                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade"
+                            placeholder="Digite a quantidade" value="{{ $ingresso->quantidade }}"></p>
                     <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
                             placeholder="Digite o tipo de ingresso" value="{{ $ingresso->tipoIngresso }}"></p>
                     <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
                             placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
-                    <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
-                            value="{{ $ingresso->parque_id }}"></p>
+                    <p>Data: <input type="date" name="data" id="data" value="{{ $ingresso->data }}"></p>
+                    <div class="form-check form-switch">
+                        <p>
+                            <input class="form-check-input" type="checkbox" role="switch" id="status"
+                                name="status" value="{{ $ingresso->status }}" checked>
+                            <label class="form-check-label" for="status">Ingresso válido</label>
+                        </p>
+                    </div>
                     <div class="container-fluid">
                         <div class="row">
-                            <button class="card-link btn btn-success shadow col" style="margin-right: 1%" type="submit">Enviar</button>
+                            <button class="card-link btn btn-success shadow col" style="margin-right: 1%"
+                                type="submit">Enviar</button>
                             <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
                                 role="button">Cancelar</a>
                         </div>

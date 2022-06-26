@@ -20,12 +20,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{{ route('ingressos.index') }}">Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ingressos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
+                            </li>
+                            <li><a href="{{ route('ingressos.create') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ingressos.create') }}">Adicionar Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidades
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('unidades.index') }}" class="dropdown-item">Lista de Unidades</a>
+                            </li>
+                            <li><a href="{{ route('unidades.create') }}" class="dropdown-item">Adicionar Unidade</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('login'))
@@ -64,14 +81,14 @@
                 <h5 class="card-title">Novo Ingresso</h5>
                 <form method="POST" action="{{ route('ingressos.store') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <p>Quantidade: <input size="31" type="text" name="quantidade" id="quantidade"
-                            placeholder="Digite a quantidade" value="{{ old('quantidade') }}"></p>
-                    <p>Tipo de ingresso: <input size="27" type="text" name="tipoIngresso" id="tipoIngresso"
-                            placeholder="Digite o tipo de ingresso" value="{{ old('tipoIngresso') }}"></p>
-                    <p>Nome do comprador: <input size="22" type="text" name="nomeComprador" id="nomeComprador"
-                            placeholder="Digite o nome do comprador" value="{{ old('nomeComprador') }}"></p>
-                    <p>ID do parque: <input size="30" type="text" name="parque_id" id="parque_id"
-                            placeholder="Digite o ID do parque" value="{{ old('parque_id') }}"></p>
+                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
+                            value="{{ old('quantidade') }}"></p>
+                    <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
+                            placeholder="Digite aqui" value="{{ old('tipoIngresso') }}"></p>
+                    <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
+                            placeholder="Digite aqui" value="{{ old('nomeComprador') }}"></p>
+                    <p>Data do ingresso: <input type="date" name="data" id="data"
+                            value="{{ old('data') }}"></p>
                     <div class="row">
                         <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
                         <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"

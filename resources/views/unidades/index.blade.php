@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ingressos</title>
+    <title>Unidades</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -74,7 +74,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>Lista de Ingressos</h1>
+                <h1>Lista de Unidades</h1>
             </div>
         </div>
     </div>
@@ -96,32 +96,30 @@
                 <thead style="background-color: #F4F6F7">
                     <tr>
                         <th scope="col" class="h4" style="text-align: center">ID</th>
-                        <th scope="col" class="h4" style="text-align: left">Nome do Comprador</th>
-                        <th scope="col" class="h4" style="text-align: center">Tipo de Ingresso</th>
-                        <th scope="col" class="h4" style="text-align: center">Quantidade</th>
-                        <th scope="col" class="h4" style="text-align: center">Data</th>
+                        <th scope="col" class="h4" style="text-align: left">Nome da unidade</th>
+                        <th scope="col" class="h4" style="text-align: center">Quantidade de ingressos</th>
+                        <th scope="col" class="h4" style="text-align: center">Valor dos Ingressos</th>
+                        <th scope="col" class="h4" style="text-align: center">Descrição</th>
+                        <th scope="col" class="h4" style="text-align: center">Endereço</th>
                         <th scope="col" class="h4" style="text-align: center">Opções</th>
                     </tr>
                 </thead>
-                @foreach ($ingressos as $ingresso)
+                @foreach ($unidades as $unidade)
                     <tbody>
                         <tr>
-                            <th scope="col" class="h3" style="text-align: center">{{ $ingresso->id }}</th>
-                            <td class="col h3" style="text-align: left">{{ $ingresso->nomeComprador }}</td>
-                            @if ($ingresso->tipoIngresso == 'VIP')
-                                <td class="col h3" style="text-align: center; color: #ffc107">
-                                    {{ $ingresso->tipoIngresso }}</td>
-                            @else
-                                <td class="col h3" style="text-align: center">{{ $ingresso->tipoIngresso }}</td>
-                            @endif
-                            <td class="col h3" style="text-align: center">{{ $ingresso->quantidade }}</td>
-                            <td class="col h3" style="text-align: center">{{ $ingresso->data }}</td>
+                            <th scope="col" class="h3" style="text-align: center">{{ $unidade->id }}</th>
+                            <td class="col h3" style="text-align: left">{{ $unidade->nome }}</td>
+                            <td class="col h3" style="text-align: center">
+                                {{ $unidade->quantidade }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->valorIngresso }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->descricao }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->endereco }}</td>
                             <td class="col" style="text-align: center">
                                 <a class="btn btn-light shadow-sm"
-                                    href="{{ route('ingressos.show', $ingresso->id) }}" role="button"
+                                    href="{{ route('unidades.show', $unidade->id) }}" role="button"
                                     style="text-align: center">Ver detalhes</a>
                                 <a class="btn btn-light shadow-sm"
-                                    href="{{ route('ingressos.edit', $ingresso->id) }}" role="button"
+                                    href="{{ route('unidades.edit', $unidade->id) }}" role="button"
                                     style="text-align: center">Editar</a>
                             </td>
                         </tr>

@@ -64,7 +64,14 @@ Route::resource('/ingressos', IngressoController::class)
         })->middleware(['auth']);
 
 
+//Rotas de Atrativos
 Route::resource('/atrativos', AtrativoController::class)
         ->missing(function (Request $request) {
             return Redirect::route('atrativos.index');
+        })->middleware(['auth']);
+
+//Rotas de Unidades
+Route::resource('/unidades', UnidadeController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('unidades.index');
         })->middleware(['auth']);

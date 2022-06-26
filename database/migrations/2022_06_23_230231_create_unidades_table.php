@@ -17,7 +17,7 @@ class CreateUnidadesTable extends Migration
             $table->id();
             $table->string('nome',60);
             $table->integer('quantidade');
-            $table->decimal('valorIngresso',6,2);
+            $table->integer('valorIngresso');
             $table->string('descricao',250);
             $table->string('endereco',250);
             $table->timestamps();

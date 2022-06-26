@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreIngressoRequest extends FormRequest
+class StoreUpdateUnidade extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class StoreIngressoRequest extends FormRequest
     public function rules()
     {
         return [
-            'data' => 'required | date',
-            'status' => 'required | boolean',
+            'nome' => 'required | max:60 | min:5',
             'quantidade' => 'required | integer',
-            'tipoIngresso' => 'required | max:30 | min:3',
-            'nomeComprador' => 'required | max:60 | min:5'
+            'valorIngresso' => 'required | integer',
+            'descricao' => 'required | max:250 | min:5',
+            'endereco' => 'required | max:250 | min:5'
         ];
     }
 }

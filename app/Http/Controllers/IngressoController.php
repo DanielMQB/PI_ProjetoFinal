@@ -24,8 +24,9 @@ class IngressoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Ingresso $ingresso)
     {
+        $ingresso->status == true;
         return view('ingressos.create');
     }
 
