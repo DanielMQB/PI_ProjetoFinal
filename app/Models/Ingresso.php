@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ingresso extends Model
 {
     use HasFactory;
-    protected $fillable = ['tipo','data','nome','status'];
+    protected $fillable = ['tipoIngresso','data','nomeComprador','status','quantidade'];
 
     public function unidade()
     {

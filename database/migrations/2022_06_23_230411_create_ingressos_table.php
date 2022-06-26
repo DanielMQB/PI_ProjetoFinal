@@ -15,10 +15,11 @@ class CreateIngressosTable extends Migration
     {
         Schema::create('ingressos', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo',30);
             $table->date('data');
-            $table->string('nome',60);
             $table->string('status',20);
+            $table->integer('quantidade');
+            $table->string('tipoIngresso',30);
+            $table->string('nomeComprador',60);
             $table->timestamps();
         });
     }

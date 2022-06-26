@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\IngressoController;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+//Rotas de usuário
 //--------------------------INDEX----------------------
 Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index');
 
@@ -37,4 +42,11 @@ Route::get('/usuarios/edit/{id}',[UsuarioController::class, 'edit'])-> name('usu
 //------------------------UPDATE --------------------------
 Route::put('/usuarios/{id}',[UsuarioController::class, 'update'])->name('usuarios.update');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+
+//Rotas de Ingressos
+Route::resource('/ingressos', IngressoController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('ingressos.index');
+        })->middleware(['auth']);
