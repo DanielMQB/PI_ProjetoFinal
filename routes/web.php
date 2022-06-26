@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\UnidadeController;
+=======
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\IngressoController;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Redirect;
+>>>>>>> desenvolvimento
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +39,28 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+//Rotas de usuário
+//--------------------------INDEX----------------------
+Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index');
+
+//--------------------SHOW---------------
+Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuarios.show');
+
+//----------------------DESTROYYY--------------------
+Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+
+//-------------------------EDIT-------------------------------------------
+
+Route::get('/usuarios/edit/{id}',[UsuarioController::class, 'edit'])-> name('usuarios.edit');
+
+//------------------------UPDATE --------------------------
+Route::put('/usuarios/{id}',[UsuarioController::class, 'update'])->name('usuarios.update');
+
+require __DIR__ . '/auth.php';
+
+
+//Rotas de Ingressos
+Route::resource('/ingressos', IngressoController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('ingressos.index');
+        })->middleware(['auth']);

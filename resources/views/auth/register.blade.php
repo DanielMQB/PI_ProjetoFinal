@@ -26,6 +26,23 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- CPF -->
+            <div class="mt-4">
+                <x-label for="cpf" :value="__('cpf')" />
+
+                <x-input id="cpf" class="block mt-1 w-full"
+                                type="text"
+                                name="cpf"/>
+            </div>
+
+            <!-- Telefone -->
+            <div>
+                <x-label for="telefone" :value="__('telefone')" />
+
+                <x-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" :value="old('telefone')" required autofocus />
+            </div>
+
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
