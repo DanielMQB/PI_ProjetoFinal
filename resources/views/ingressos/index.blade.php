@@ -11,27 +11,45 @@
 </head>
 
 <body>
-    <nav class="navbar bg-secondary">
+    <nav class="navbar navbar-expand-lg bg-secondary shadow">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Parque da Serra do Mar</a>
-            <div class="navbar-brand">
-                @if (Route::has('login'))
-                    <div class="row">
-                        <div class="col">
-                            @auth
-                                <a href="{{ url('/dashboard') }}" class="btn btn-dark shadow-lg" role="button">Dashboard</a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-dark shadow-lg" role="button">Login</a>
-
+            <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            href="{{ route('ingressos.index') }}">Ingressos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('ingressos.create') }}">Adicionar Ingressos</a>
+                    </li>
+                    <li class="nav-item">
+                        @if (Route::has('login'))
+                            <div class="row">
+                                <div class="col">
+                                    @auth
+                                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                                    @else
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a href="{{ route('login') }}" class="dropdown-item">Login</a></li>
                                 @if (Route::has('register'))
-                                    <a href="{{ route('register') }}" class="btn btn-dark shadow-lg" role="button">Register</a>
+                                    <a href="{{ route('register') }}" class="dropdown-item">Register</a>
                                 @endif
-                            @endauth
-                        </div>
-                    </div>
-                @endif
+                            </ul>
+                        </li>
+                    @endauth
             </div>
         </div>
+        @endif
     </nav>
 
     <br>
@@ -42,11 +60,6 @@
                 <h1>Lista de Ingressos</h1>
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid">
-        <a class="btn btn-primary shadow-lg" href="{{ route('ingressos.create') }}" role="button">Adicionar
-            ingresso</a>
     </div>
 
     <hr>
@@ -101,7 +114,6 @@
             </p>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
