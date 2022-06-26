@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Ingresso;
 use App\Http\Requests\StoreIngressoRequest;
 use App\Http\Requests\UpdateIngressoRequest;
-use App\Http\Requests\StoreUpdateIngresso;
 
 class IngressoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a indexing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,7 +39,7 @@ class IngressoController extends Controller
     {
         Ingresso::create($request->all());
         return redirect()
-                ->route('ingressos.index');
+            ->route('ingressos.index');
     }
 
     /**
@@ -51,9 +50,7 @@ class IngressoController extends Controller
      */
     public function show(Ingresso $ingresso)
     {
-        return view('ingressos.show', [
-            'ingresso' => Ingresso::findOrFail($ingresso)
-        ]);
+        return view('ingressos.show', compact('ingresso'));
     }
 
     /**
@@ -64,7 +61,13 @@ class IngressoController extends Controller
      */
     public function edit(Ingresso $ingresso)
     {
-        //
+        $ingresso = Ingresso::find($ingresso->id);
+        if (!$ingresso) {
+            return redirect()
+                ->route('ingressos.index')
+                ->with('message', 'Ingresso não encontrado');
+        }
+        return view('ingressos.edit', compact('ingresso'));
     }
 
     /**
@@ -76,7 +79,10 @@ class IngressoController extends Controller
      */
     public function update(UpdateIngressoRequest $request, Ingresso $ingresso)
     {
-        //
+        $ingresso->update($request->all());
+        return redirect()
+            ->route('ingressos.index')
+            ->with('message', 'Ingresso editado');
     }
 
     /**
@@ -87,16 +93,9 @@ class IngressoController extends Controller
      */
     public function destroy(Ingresso $ingresso)
     {
-        $ingresso = Ingresso::find($ingresso);
-        if(!$ingresso) {
-            return redirect()
-                    ->route('ingressos.index')
-                    ->with('message', 'Ingresso não foi encontrado');
-        }
         $ingresso->delete();
         return redirect()
-                ->route('ingressos.index')
-                ->with('message', 'Ingresso foi deletado')
-    ;
-}
+            ->route('ingressos.index')
+            ->with('message', 'Ingresso foi deletado');
+    }
 }
