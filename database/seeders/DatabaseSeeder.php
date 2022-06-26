@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             AtrativoSeeder::class,
             UserSeeder::class,
             IngressoSeeder::class,
+            DiaUnidadeSeeder::class,
+            AtrativoIngressoSeeder::class,
         ]);
 
     }
