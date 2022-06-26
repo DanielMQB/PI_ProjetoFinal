@@ -61,3 +61,9 @@ Route::resource('/ingressos', IngressoController::class)
         ->missing(function (Request $request) {
             return Redirect::route('ingressos.index');
         })->middleware(['auth']);
+
+//Rotas de Unidades
+Route::resource('/unidades', UnidadeController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('unidades.index');
+        });

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editar ingresso</title>
+    <title>Unidades</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -71,70 +71,64 @@
 
     <br>
 
-    <h1 class="container-fluid">Editar ingresso</h1>
-
-    <hr>
-
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    @endif
-
     <div class="container-fluid">
-        <div class="card" style="width: 25rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ $ingresso->nomeComprador }}</h5>
-                @if ($ingresso->tipoIngresso == 'VIP')
-                    <h6 class="card-subtitle mb-2 text-warning">{{ $ingresso->tipoIngresso }}</h6>
-                @else
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $ingresso->tipoIngresso }}</h6>
-                @endif
-                <form action="{{ route('ingressos.update', $ingresso->id) }}" method="POST">
-                    @method('PUT')
-                    @csrf
-                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
-                            value="{{ $ingresso->quantidade }}"></p>
-                    <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
-                            placeholder="Digite o tipo de ingresso" value="{{ $ingresso->tipoIngresso }}"></p>
-                    <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
-                            placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
-                    <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
-                            value="{{ $ingresso->parque_id }}"></p>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <button class="card-link btn btn-success shadow col" style="margin-right: 1%" type="submit">Enviar</button>
-                            <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
-                                role="button">Cancelar</a>
-                        </div>
-                    </div>
-                </form>
+        <div class="row">
+            <div class="col">
+                <h1>Lista de Unidades</h1>
             </div>
         </div>
     </div>
 
+    <hr>
 
-    {{-- <div class="container-fluid">
-        <form action="{{ route('ingressos.update', $ingresso->id) }}" method="POST">
-            @method('PUT')
-            @csrf
-            <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
-                    value="{{ $ingresso->quantidade }}"></p>
-            <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
-                    placeholder="Digite o tipo de ingresso" value="{{ $ingresso->tipoIngresso }}"></p>
-            <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
-                    placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
-            <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
-                    value="{{ $ingresso->parque_id }}"></p>
-            <div class="container-fluid">
-                <div class="row">
-                    <button class="btn btn-success shadow col-1" style="margin-right: 1%" type="submit">Enviar</button>
-                    <a class="btn btn-secondary shadow col-1" href="{{ route('ingressos.index') }}"
-                        role="button">Cancelar</a>
-                </div>
+    <br>
+
+
+    <div class="container-fluid">
+        @if (session('message'))
+            <div>
+                {{ session('message') }}
             </div>
-        </form>
-    </div> --}}
+        @endif
+        <div>
+            <p>
+            <table class="table table-hover">
+                <thead style="background-color: #F4F6F7">
+                    <tr>
+                        <th scope="col" class="h4" style="text-align: center">ID</th>
+                        <th scope="col" class="h4" style="text-align: left">Nome da unidade</th>
+                        <th scope="col" class="h4" style="text-align: center">Quantidade de ingressos</th>
+                        <th scope="col" class="h4" style="text-align: center">Valor dos Ingressos</th>
+                        <th scope="col" class="h4" style="text-align: center">Descrição</th>
+                        <th scope="col" class="h4" style="text-align: center">Endereço</th>
+                        <th scope="col" class="h4" style="text-align: center">Opções</th>
+                    </tr>
+                </thead>
+                @foreach ($unidades as $unidade)
+                    <tbody>
+                        <tr>
+                            <th scope="col" class="h3" style="text-align: center">{{ $unidade->id }}</th>
+                            <td class="col h3" style="text-align: left">{{ $unidade->nome }}</td>
+                            <td class="col h3" style="text-align: center">
+                                {{ $unidade->quantidade }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->valorIngresso }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->descricao }}</td>
+                            <td class="col h3" style="text-align: center">{{ $unidade->endereco }}</td>
+                            <td class="col" style="text-align: center">
+                                <a class="btn btn-light shadow-sm"
+                                    href="{{ route('unidades.show', $unidade->id) }}" role="button"
+                                    style="text-align: center">Ver detalhes</a>
+                                <a class="btn btn-light shadow-sm"
+                                    href="{{ route('unidades.edit', $unidade->id) }}" role="button"
+                                    style="text-align: center">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                @endforeach
+            </table>
+            </p>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
