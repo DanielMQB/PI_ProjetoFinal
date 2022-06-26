@@ -16,7 +16,7 @@ class CreateIngressosTable extends Migration
         Schema::create('ingressos', function (Blueprint $table) {
             $table->id();
             $table->date('data');
-            $table->string('status',20);
+            $table->boolean('status');
             $table->integer('quantidade');
             $table->string('tipoIngresso',30);
             $table->string('nomeComprador',60);

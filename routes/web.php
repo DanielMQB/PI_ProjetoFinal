@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\IngressoController;
 use GuzzleHttp\Psr7\Request;
@@ -16,6 +17,16 @@ use Illuminate\Support\Facades\Redirect;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+/*
+    Rota de Unidades de conservação
+*/
+
+// Indice de unidades
+Route::get('/unidades',[UnidadeController::class,'index'])->name('unidades.index');
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
