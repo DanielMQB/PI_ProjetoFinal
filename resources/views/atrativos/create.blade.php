@@ -20,12 +20,41 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="{{ route('ingressos.index') }}">Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Ingressos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
+                            </li>
+                            <li><a href="{{ route('ingressos.create') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ingressos.create') }}">Adicionar Ingressos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Unidades
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('unidades.index') }}" class="dropdown-item">Lista de Unidades</a>
+                            </li>
+                            <li><a href="{{ route('unidades.create') }}" class="dropdown-item">Adicionar Unidade</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Atrativos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a href="{{ route('atrativos.index') }}" class="dropdown-item">Lista de Atrativos</a>
+                            </li>
+                            <li><a href="{{ route('atrativos.create') }}" class="dropdown-item">Adicionar Atrativo</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('login'))
@@ -61,41 +90,50 @@
     <div class="container-fluid">
         <div class="card" style="width: 25rem;">
             <div class="card-body">
-                <h5 class="card-title">Novo Ingresso</h5>
-                <form method="POST" action="{{ route('ingressos.store') }}">
+                <h5 class="card-title">Novo Atrativo</h5>
+                <form method="POST" action="{{ route('atrativos.store') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <p>Quantidade: <input size="31" type="text" name="quantidade" id="quantidade"
-                            placeholder="Digite a quantidade" value="{{ old('quantidade') }}"></p>
-                    <p>Tipo de ingresso: <input size="27" type="text" name="tipoIngresso" id="tipoIngresso"
-                            placeholder="Digite o tipo de ingresso" value="{{ old('tipoIngresso') }}"></p>
-                    <p>Nome do comprador: <input size="22" type="text" name="nomeComprador" id="nomeComprador"
-                            placeholder="Digite o nome do comprador" value="{{ old('nomeComprador') }}"></p>
-                    <p>ID do parque: <input size="30" type="text" name="parque_id" id="parque_id"
-                            placeholder="Digite o ID do parque" value="{{ old('parque_id') }}"></p>
+                    <p>Nome: <input type="text" name="nome" id="nome" placeholder="Digite aqui"
+                            value="{{ old('nome') }}"></p>
+                    <p>Descrição: <input type="text" name="descricao" id="descricao" placeholder="Digite aqui"
+                            value="{{ old('descricao') }}"></p>
+                    <p>Tipo de visita:
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo" id="tipo"
+                            value="Monitorada">
+                        <label class="form-check-label" for="tipo">
+                            Monitorada
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipo" id="tipo"
+                            value="Auto-guiada">
+                        <label class="form-check-label" for="tipo">
+                            Auto-guiada
+                        </label>
+                    </div>
+                    </p>
+                    <p>Observações: <input type="text" name="observacoes" id="observacoes"
+                            placeholder="Digite aqui" value="{{ old('observacoes') }}"></p>
+                    <p>Capacidade: <input type="text" name="capacidade" id="capacidade" placeholder="Digite aqui"
+                            value="{{ old('capacidade') }}"></p>
+                    <p>Duração: <input type="text" name="duracao" id="duracao"
+                            placeholder="Digite aqui (minutos)" value="{{ old('duracao') }}"></p>
+                    <p>Unidade: <select name="unidade_id" id="unidade_id">
+                        <option value="" selected>Selecione um parque</option>
+                        @foreach ($unidades as $unidade)
+                            <option value="{{$unidade->id}}">{{$unidade->nome}}</option>
+                        @endforeach
+                    </select></p>
                     <div class="row">
                         <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
-                        <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
+                        <a class="card-link btn btn-secondary shadow col" href="{{ route('atrativos.index') }}"
                             role="button">Cancelar</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-    {{-- <div class="container-fluid">
-        <form method="POST" action="{{ route('ingressos.store') }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
-                    value="{{ old('quantidade') }}"></p>
-            <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
-                    placeholder="Digite o tipo de ingresso" value="{{ old('tipoIngresso') }}"></p>
-            <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
-                    placeholder="Digite o nome do comprador" value="{{ old('nomeComprador') }}"></p>
-            <p>ID do parque: <input type="text" name="parque_id" id="parque_id"
-                    placeholder="Digite o ID do parque" value="{{ old('parque_id') }}"></p>
-            <p><button class="btn btn-primary shadow" type="submit">Enviar</button></p>
-        </form>
-    </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">

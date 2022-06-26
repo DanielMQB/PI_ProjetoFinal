@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateAtrativo;
 use App\Models\Atrativo;
+use App\Models\Unidade;
 
 class AtrativoController extends Controller
 {
@@ -26,7 +27,9 @@ class AtrativoController extends Controller
      */
     public function create()
     {
-        return view('atrativos.create');
+        $unidades = Unidade::all();
+        // dd($unidades);
+        return view('atrativos.create', compact('unidades'));
     }
 
     /**
@@ -37,6 +40,7 @@ class AtrativoController extends Controller
      */
     public function store(StoreUpdateAtrativo $request)
     {
+        // dd($request->all());
         Atrativo::create($request->all());
         return redirect()
             ->route('atrativos.index');

@@ -24,7 +24,7 @@ class StoreUpdateAtrativo extends FormRequest
     public function rules()
     {
         return [
-            //
+            'unidade_id' => 'required'
         ];
     }
 }
