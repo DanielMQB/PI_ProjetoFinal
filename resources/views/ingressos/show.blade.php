@@ -91,7 +91,7 @@
                 </p>
                 <div class="container">
                     <div class="row">
-                        <form class="col" action="{{route('ingressos.destroy', $ingresso->id)}}" method="POST">
+                        <form class="col" action="{{ route('ingressos.destroy', $ingresso->id) }}" method="POST">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="card-link btn btn-danger shadow" type="submit">Deletar Ingresso</button>

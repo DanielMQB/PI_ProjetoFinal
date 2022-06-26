@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\IngressoController;
+use App\Http\Controllers\UnidadeController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -66,4 +67,4 @@ Route::resource('/ingressos', IngressoController::class)
 Route::resource('/unidades', UnidadeController::class)
         ->missing(function (Request $request) {
             return Redirect::route('unidades.index');
-        });
+        })->middleware(['auth']);

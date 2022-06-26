@@ -24,10 +24,11 @@ class UpdateIngressoRequest extends FormRequest
     public function rules()
     {
         return [
-            'quantidade' => 'required | Integer',
-            'tipoIngresso' => 'required | max:25 | min:3',
-            'nomeComprador' => 'required | max:100 | min: 3',
-            'parque_id' => 'required | Integer'
+            'data' => 'required | date',
+            'status' => 'required | boolean',
+            'quantidade' => 'required | integer',
+            'tipoIngresso' => 'required | max:30 | min:3',
+            'nomeComprador' => 'required | max:60 | min:5'
         ];
     }
 }
