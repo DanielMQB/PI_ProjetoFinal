@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\IngressoController;
+use App\Http\Controllers\AtrativoController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -60,4 +61,10 @@ require __DIR__ . '/auth.php';
 Route::resource('/ingressos', IngressoController::class)
         ->missing(function (Request $request) {
             return Redirect::route('ingressos.index');
+        })->middleware(['auth']);
+
+
+Route::resource('/atrativos', AtrativoController::class)
+        ->missing(function (Request $request) {
+            return Redirect::route('atrativos.index');
         })->middleware(['auth']);
