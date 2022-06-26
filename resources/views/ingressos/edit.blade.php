@@ -65,6 +65,39 @@
     @endif
 
     <div class="container-fluid">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ $ingresso->nomeComprador }}</h5>
+                @if ($ingresso->tipoIngresso == 'VIP')
+                    <h6 class="card-subtitle mb-2 text-warning">{{ $ingresso->tipoIngresso }}</h6>
+                @else
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $ingresso->tipoIngresso }}</h6>
+                @endif
+                <form action="{{ route('ingressos.update', $ingresso->id) }}" method="POST">
+                    @method('PUT')
+                    @csrf
+                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
+                            value="{{ $ingresso->quantidade }}"></p>
+                    <p>Tipo de ingresso: <input type="text" name="tipoIngresso" id="tipoIngresso"
+                            placeholder="Digite o tipo de ingresso" value="{{ $ingresso->tipoIngresso }}"></p>
+                    <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
+                            placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
+                    <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
+                            value="{{ $ingresso->parque_id }}"></p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <button class="card-link btn btn-success shadow col" style="margin-right: 1%" type="submit">Enviar</button>
+                            <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
+                                role="button">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- <div class="container-fluid">
         <form action="{{ route('ingressos.update', $ingresso->id) }}" method="POST">
             @method('PUT')
             @csrf
@@ -76,9 +109,15 @@
                     placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
             <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
                     value="{{ $ingresso->parque_id }}"></p>
-            <p><button class="btn btn-primary shadow" type="submit">Enviar</button></p>
+            <div class="container-fluid">
+                <div class="row">
+                    <button class="btn btn-success shadow col-1" style="margin-right: 1%" type="submit">Enviar</button>
+                    <a class="btn btn-secondary shadow col-1" href="{{ route('ingressos.index') }}"
+                        role="button">Cancelar</a>
+                </div>
+            </div>
         </form>
-    </div>
+    </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">

@@ -59,6 +59,30 @@
     <hr>
 
     <div class="container-fluid">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">Novo Ingresso</h5>
+                <form method="POST" action="{{ route('ingressos.store') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <p>Quantidade: <input size="31" type="text" name="quantidade" id="quantidade"
+                            placeholder="Digite a quantidade" value="{{ old('quantidade') }}"></p>
+                    <p>Tipo de ingresso: <input size="27" type="text" name="tipoIngresso" id="tipoIngresso"
+                            placeholder="Digite o tipo de ingresso" value="{{ old('tipoIngresso') }}"></p>
+                    <p>Nome do comprador: <input size="22" type="text" name="nomeComprador" id="nomeComprador"
+                            placeholder="Digite o nome do comprador" value="{{ old('nomeComprador') }}"></p>
+                    <p>ID do parque: <input size="30" type="text" name="parque_id" id="parque_id"
+                            placeholder="Digite o ID do parque" value="{{ old('parque_id') }}"></p>
+                    <div class="row">
+                        <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
+                        <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
+                            role="button">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- <div class="container-fluid">
         <form method="POST" action="{{ route('ingressos.store') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade"
@@ -67,11 +91,11 @@
                     placeholder="Digite o tipo de ingresso" value="{{ old('tipoIngresso') }}"></p>
             <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
                     placeholder="Digite o nome do comprador" value="{{ old('nomeComprador') }}"></p>
-            <p>ID do parque: <input type="text" name="parque_id" id="parque_id" placeholder="Digite o ID do parque"
-                    value="{{ old('parque_id') }}"></p>
+            <p>ID do parque: <input type="text" name="parque_id" id="parque_id"
+                    placeholder="Digite o ID do parque" value="{{ old('parque_id') }}"></p>
             <p><button class="btn btn-primary shadow" type="submit">Enviar</button></p>
         </form>
-    </div>
+    </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
