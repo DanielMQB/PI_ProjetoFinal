@@ -14,4 +14,9 @@ class Atrativo extends Model
     {
         return $this->belongsTo(Unidade::class);
     }
+
+    public function ingressos()
+    {
+        return $this->belongsToMany(Ingressos::class);
+    }
 }

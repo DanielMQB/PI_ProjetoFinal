@@ -19,4 +19,9 @@ class Ingresso extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function atrativos()
+    {
+        return $this->belongsToMany(Atrativos::class);
+    }
 }

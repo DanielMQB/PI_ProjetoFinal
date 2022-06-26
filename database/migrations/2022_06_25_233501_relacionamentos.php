@@ -27,6 +27,12 @@ return new class extends Migration
             $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
             $table->foreignId('dia_id')->constrained('dias')->ondelete('cascade');
         });
+
+        Schema::create('atrativos_ingressos', function (Blueprint $table){
+            $table->id();
+            $table->foreignId('atrativo_id')->constrained('atrativos')->ondelete('cascade');
+            $table->foreignId('ingresso_id')->constrained('ingressos')->ondelete('cascade');
+        });
     }
 
     /**
@@ -48,5 +54,6 @@ return new class extends Migration
         });
 
         Schema::dropIfExists('unidades_dias');
+        Schema::dropIfExists('atrativos_ingressos');
     }
 };
