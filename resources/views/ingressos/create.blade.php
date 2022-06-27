@@ -101,6 +101,16 @@
                             placeholder="Digite aqui" value="{{ old('nomeComprador') }}"></p>
                     <p>Data do ingresso: <input type="date" name="data" id="data"
                             value="{{ old('data') }}"></p>
+
+
+                    <p>Unidade : <select name="unidade_id" id="unidade_id">
+                             <option value="" selected>Selecione um Parque</option>
+                             @foreach ($unidades as $unidade)
+                                 <option value="{{$unidade->id}}">{{$unidade->nome}}</option>
+                                @endforeach
+                     </select></p>
+
+
                     <div class="row">
                         <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
                         <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"

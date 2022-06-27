@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ingresso;
 use App\Http\Requests\StoreIngressoRequest;
 use App\Http\Requests\UpdateIngressoRequest;
-
+use App\Models\Unidade;
 class IngressoController extends Controller
 {
     /**
@@ -22,13 +22,29 @@ class IngressoController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+
+
+     *
+     *
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create(Ingresso $ingresso)
-    {
-        $ingresso->status == true;
-        return view('ingressos.create');
+
+    //public function create(Ingresso $ingresso)
+    //{
+    //  $ingresso->status == true;
+   //    return view('ingressos.create');
+   // }
+
+    public function create(){
+        $unidade = Unidade::all();
+        //dd($unidades);
+        return view('ingressos.create',compact('unidades'));
     }
+
+
+
+
 
     /**
      * Store a newly created resource in storage.
