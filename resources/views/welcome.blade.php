@@ -228,9 +228,9 @@
                     </ul>
                 </div>
                 <div class="col">
-                    <strong>NÚCLEOS</strong>
+                    <strong>UNIDADES</strong>
                     <ul>
-                        <!-- OS NÚCLEOS DEVEM APARECER EM ORDEM ALFABÉTICA -->
+                        <!-- AS UNIDADES DEVEM APARECER EM ORDEM ALFABÉTICA -->
 
                         <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/bertioga/"
                                 class="link-secondary">Bertioga<span>

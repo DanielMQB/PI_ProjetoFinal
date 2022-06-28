@@ -8,10 +8,15 @@
     <title>Adicionar Unidade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,7 +33,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -88,38 +94,39 @@
     <hr>
 
     <div class="container-fluid">
-        <div class="card" style="width: 25rem;">
+        <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
                 <h5 class="card-title">Nova Unidade</h5>
                 <form method="POST" action="{{ route('unidades.store') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <p>Nome da Unidade: <input type="text" name="nome" id="nome" placeholder="Digite aqui"
+                    <p>Nome da Unidade: <input class="shadow" type="text" name="nome" id="nome" placeholder="Digite aqui"
                             value="{{ old('nome') }}"></p>
-                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
+                    <p>Quantidade: <input class="shadow" type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
                             value="{{ old('quantidade') }}"></p>
-                    <p>Valor do Ingresso: <input type="text" name="valorIngresso" id="valorIngresso"
+                    <p>Valor do Ingresso: <input class="shadow" type="text" name="valorIngresso" id="valorIngresso"
                             placeholder="Digite aqui" value="{{ old('valorIngresso') }}"></p>
-                    <p>Descrição: <input type="text" name="descricao" id="descricao" placeholder="Digite aqui"
+                    <p>Descrição: <input class="shadow" type="text" name="descricao" id="descricao" placeholder="Digite aqui"
                             value="{{ old('descricao') }}"></p>
-                    <p>Endereço: <input type="text" name="endereco" id="endereco" placeholder="Digite aqui"
+                    <p>Endereço: <input class="shadow" type="text" name="endereco" id="endereco" placeholder="Digite aqui"
                             value="{{ old('endereco') }}"></p>
                     <p>Dias de Funcionamento:
                         @foreach ($dias as $dia)
-                        <div class="col-12">
+                            <div class="col-12">
 
-                            <div class="form-check">
-                              <input name="dias[]" value="{{$dia->id}}" class="form-check-input" type="checkbox" id="gridCheck">
-                              <label class="form-check-label" for="gridCheck">
-                                {{$dia->dia}}
-                              </label>
+                                <div class="form-check">
+                                    <input name="dias[]" value="{{ $dia->id }}" class="form-check-input"
+                                        type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        {{ $dia->dia }}
+                                    </label>
+                                </div>
                             </div>
-                          </div>
                         @endforeach
 
                     </p>
                     <div class="row">
-                        <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
-                        <a class="card-link btn btn-secondary shadow col" href="{{ route('unidades.index') }}"
+                        <button class="card-link btn shadow col" style="background: #AED6F1" type="submit">Enviar</button>
+                        <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('unidades.index') }}"
                             role="button">Cancelar</a>
                     </div>
                 </form>
