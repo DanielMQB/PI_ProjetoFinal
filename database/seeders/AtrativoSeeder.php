@@ -18,7 +18,7 @@ class AtrativoSeeder extends Seeder
         Atrativo::create([
             'nome' => 'Observação de pássaros',
             'descricao'=> 'Trilha com observação de pássaros',
-            'duracao'=>'03:00:00',
+            'duracao'=> 2,
             'tipo'=>'monitorado',
             'capacidade'=> 13,
             'observacoes'=>'Leve binóculos',
@@ -27,7 +27,7 @@ class AtrativoSeeder extends Seeder
         Atrativo::create([
             'nome' => 'Trilha',
             'descricao'=> 'Apenas uma trilha',
-            'duracao'=>'01:30:00',
+            'duracao'=> 2,
             'tipo'=>'monitorado',
             'capacidade'=> 25,
             'observacoes'=>'Leve roupas extras',
@@ -36,7 +36,7 @@ class AtrativoSeeder extends Seeder
         Atrativo::create([
             'nome' => 'Passeio no parque',
             'descricao'=> 'Apenas um passeio',
-            'duracao'=>'01:00:00',
+            'duracao'=> 2,
             'tipo'=>'autoguiado',
             'capacidade'=> 30,
             'observacoes'=>'Venha preparado para passear',
@@ -45,7 +45,7 @@ class AtrativoSeeder extends Seeder
         Atrativo::create([
             'nome' => 'Trilha maneira',
             'descricao'=> 'Uma trilha maneira',
-            'duracao'=>'02:35:00',
+            'duracao'=> 3,
             'tipo'=>'monitorado',
             'capacidade'=> 15,
             'observacoes'=>'Leve equipamentos de primeiros socorros',
@@ -54,7 +54,7 @@ class AtrativoSeeder extends Seeder
         Atrativo::create([
             'nome' => 'Piquenique',
             'descricao'=> 'Um piquenique',
-            'duracao'=>'01:20:00',
+            'duracao'=> 7,
             'tipo'=>'autoguiado',
             'capacidade'=> 15,
             'observacoes'=>'Leve comida e uma toalha',
