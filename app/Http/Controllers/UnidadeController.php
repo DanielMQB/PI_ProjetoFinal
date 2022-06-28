@@ -48,6 +48,7 @@ class UnidadeController extends Controller
     }
 
     public function destroy(Unidade $unidade) {
+        $unidade->dias()->detach();
         $unidade->delete();
         return redirect()
             ->route('unidades.index')
