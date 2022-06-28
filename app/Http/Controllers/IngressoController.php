@@ -120,6 +120,7 @@ class IngressoController extends Controller
      */
     public function destroy(Ingresso $ingresso)
     {
+        $ingresso->atrativos()->detach();
         $ingresso->delete();
         return redirect()
             ->route('ingressos.index')
