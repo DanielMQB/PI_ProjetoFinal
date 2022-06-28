@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingresso;
+use App\Models\Unidade;
+use App\Models\Atrativo;
 use App\Http\Requests\StoreIngressoRequest;
 use App\Http\Requests\UpdateIngressoRequest;
-use App\Models\Unidade;
+use Illuminate\Support\Facades\Auth;
+
 class IngressoController extends Controller
 {
     /**
@@ -36,15 +39,16 @@ class IngressoController extends Controller
    //    return view('ingressos.create');
    // }
 
-    public function create(){
-        $unidade = Unidade::all();
+   public function getUnidades(){
+        $unidades = Unidade::all();
+        return view('ingressos.listUnidades', compact('unidades'));
+   }
+
+    public function create($unidade_id){
+        $atrativos = Atrativo::where('unidade_id',$unidade_id)->get();
         //dd($unidades);
-        return view('ingressos.create',compact('unidades'));
+        return view('ingressos.create',compact('atrativos'));
     }
-
-
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -54,7 +58,13 @@ class IngressoController extends Controller
      */
     public function store(StoreIngressoRequest $request)
     {
-        Ingresso::create($request->all());
+        $user = Auth::user();
+        $atrativo = Atrativo::find($request->atrativos[0]);
+        $request->request->add(['unidade_id' => $atrativo->unidade_id]);
+        $request->request->add(['user_id' => $user->id]);
+        $request->request->add(['status'=>true]);
+        $ingresso = Ingresso::create($request->all());
+        $ingresso->atrativos()->attach($request->atrativos);
         return redirect()
             ->route('ingressos.index');
     }

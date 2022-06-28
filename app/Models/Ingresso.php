@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ingresso extends Model
 {
     use HasFactory;
-    protected $fillable = ['tipoIngresso','data','nomeComprador','status','quantidade'];
+    protected $fillable = ['tipoIngresso','data','nomeComprador','status','quantidade','unidade_id','user_id'];
 
     public function unidade()
     {
@@ -22,6 +22,6 @@ class Ingresso extends Model
 
     public function atrativos()
     {
-        return $this->belongsToMany(Atrativos::class);
+        return $this->belongsToMany(Atrativo::class,"atrativos_ingressos","ingresso_id","atrativo_id");
     }
 }

@@ -28,7 +28,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingressos.create') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -86,7 +86,15 @@
     <h1 class="container-fluid">Adicionar novo ingresso</h1>
 
     <hr>
-
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="container-fluid">
         <div class="card" style="width: 25rem;">
             <div class="card-body">
@@ -101,15 +109,18 @@
                             placeholder="Digite aqui" value="{{ old('nomeComprador') }}"></p>
                     <p>Data do ingresso: <input type="date" name="data" id="data"
                             value="{{ old('data') }}"></p>
-
-
-                    <p>Unidade : <select name="unidade_id" id="unidade_id">
-                             <option value="" selected>Selecione um Parque</option>
-                             @foreach ($unidades as $unidade)
-                                 <option value="{{$unidade->id}}">{{$unidade->nome}}</option>
-                                @endforeach
-                     </select></p>
-
+                    <p> Atrativos
+                        @foreach ($atrativos as $atrativo)
+                        <div class="col-12">
+                            <div class="form-check">
+                              <input name="atrativos[]" value="{{$atrativo->id}}" class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                {{$atrativo->nome}}
+                              </label>
+                            </div>
+                          </div>
+                        @endforeach
+                    </p>
 
                     <div class="row">
                         <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>

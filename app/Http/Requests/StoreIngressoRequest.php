@@ -25,7 +25,7 @@ class StoreIngressoRequest extends FormRequest
     {
         return [
             'data' => 'required | date',
-            'status' => 'required | boolean',
+            'status' => 'boolean',
             'quantidade' => 'required | integer',
             'tipoIngresso' => 'required | max:30 | min:3',
             'nomeComprador' => 'required | max:60 | min:5'

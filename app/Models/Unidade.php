@@ -17,7 +17,7 @@ class Unidade extends Model
 
     public function dias()
     {
-        return $this->belongsToMany(Dia::class);
+        return $this->belongsToMany(Dias::class,"unidades_dias","unidade_id","dia_id");
     }
 
     public function ingresso()

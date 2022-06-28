@@ -28,7 +28,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingressos.create') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -103,6 +103,20 @@
                             value="{{ old('descricao') }}"></p>
                     <p>Endereço: <input type="text" name="endereco" id="endereco" placeholder="Digite aqui"
                             value="{{ old('endereco') }}"></p>
+                    <p>Dias de Funcionamento:
+                        @foreach ($dias as $dia)
+                        <div class="col-12">
+
+                            <div class="form-check">
+                              <input name="dias[]" value="{{$dia->id}}" class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                {{$dia->dia}}
+                              </label>
+                            </div>
+                          </div>
+                        @endforeach
+
+                    </p>
                     <div class="row">
                         <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
                         <a class="card-link btn btn-secondary shadow col" href="{{ route('unidades.index') }}"

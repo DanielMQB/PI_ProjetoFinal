@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Unidade;
 use App\Http\Requests\StoreUpdateUnidade;
+use App\Models\Dias;
 
 class UnidadeController extends Controller
 {
@@ -14,11 +15,13 @@ class UnidadeController extends Controller
     }
 
     public function create(Unidade $unidade) {
-        return view('unidades.create');
+        $dias = Dias::all();
+        return view('unidades.create',compact('dias'));
     }
 
     public function store(StoreUpdateUnidade $request) {
-        Unidade::create($request->all());
+        $unidade = Unidade::create($request->all());
+        $unidade->dias()->attach($request->atrativos);
         return redirect()
             ->route('unidades.index');
     }

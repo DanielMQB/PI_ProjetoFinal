@@ -61,8 +61,10 @@ require __DIR__ . '/auth.php';
 Route::resource('/ingressos', IngressoController::class)
         ->missing(function (Request $request) {
             return Redirect::route('ingressos.index');
-        })->middleware(['auth']);
+        })->except(['create'])->middleware(['auth']);
 
+Route::get('/ingresso/unidades', [IngressoController::class,'getUnidades'])->name('ingresso.unidades');
+Route::get('/ingressos/create/{unidade_id}', [IngressoController::class,'create'])->name('ingressos.create');
 
 //Rotas de Atrativos
 Route::resource('/atrativos', AtrativoController::class)
