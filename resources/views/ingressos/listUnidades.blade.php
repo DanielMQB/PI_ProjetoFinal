@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow">
+    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"

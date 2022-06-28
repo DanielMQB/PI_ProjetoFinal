@@ -7,10 +7,15 @@
     <title>Parque da Serra do Mar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -27,7 +32,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -204,6 +210,202 @@
             </p>
         </div>
     </div>
+
+    <footer style="background: #FDFEFE">
+        <br>
+        <div class="container ">
+            <div class="row">
+                <div class="col">
+                    <strong>O PARQUE</strong>
+                    <ul>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/sobre"
+                                class="link-secondary">História</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/sobre"
+                                class="link-secondary">Importância</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/gestao-do-parque"
+                                class="link-secondary">Plano de
+                                Manejo</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <strong>NÚCLEOS</strong>
+                    <ul>
+                        <!-- OS NÚCLEOS DEVEM APARECER EM ORDEM ALFABÉTICA -->
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/bertioga/"
+                                class="link-secondary">Bertioga<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/caminhos-do-mar/"
+                                class="link-secondary">Caminhos
+                                do Mar<span> </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/caraguatatuba/"
+                                class="link-secondary">Caraguatatuba<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/cunha/"
+                                class="link-secondary">Cunha<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/curucutu/"
+                                class="link-secondary">Curucutu<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/itariru/"
+                                class="link-secondary">Itariru<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/itutinga-piloes/"
+                                class="link-secondary">Itutinga-Pilões<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/padre-doria/"
+                                class="link-secondary">Padre
+                                Dória<span> </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/picinguaba/"
+                                class="link-secondary">Picinguaba<span>
+                                </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/santa-virginia/"
+                                class="link-secondary">Santa
+                                Virgínia<span> </span></a></li>
+
+
+
+
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/nucleos/sao-sebastiao/"
+                                class="link-secondary">São
+                                Sebastião<span> </span></a></li>
+
+
+
+
+                    </ul>
+                </div>
+                <div class="col">
+                    <strong>Biodiversidade</strong>
+                    <ul>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/biodiversidade/fauna"
+                                class="link-secondary">Fauna</a>
+                        </li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/biodiversidade/flora"
+                                class="link-secondary">Flora</a>
+                        </li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/biodiversidade/fungi"
+                                class="link-secondary">Fungo</a>
+                        </li>
+                    </ul>
+                    <span class="espaco"></span>
+                    <strong>O que fazer</strong>
+                    <ul>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/atividades"
+                                class="link-secondary">Atividades</a>
+                        </li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/atrativos"
+                                class="link-secondary">Atrativos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <strong>Gestão do Parque</strong>
+
+
+                    <ul>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-gestao"
+                                class="link-secondary">Programa
+                                de Gestão</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-uso-publico"
+                                class="link-secondary">Programa
+                                de Uso Público</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-pesquisa"
+                                class="link-secondary">Programa
+                                de Pesquisa</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-protecao"
+                                class="link-secondary">Programa
+                                de Proteção</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-interacao-socioambiental"
+                                class="link-secondary">Programa
+                                de Interação Socioambiental</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-patrimonio-cultural"
+                                class="link-secondary">Programa
+                                de patrimônio cultural</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/programa-de-patrimonio-natural"
+                                class="link-secondary">Programa
+                                de patrimônio natural</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/conselho-consultivo"
+                                class="link-secondary">Conselho
+                                consultivo</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/areas-protegidas"
+                                class="link-secondary">Áreas
+                                protegidas no entorno</a></li>
+
+                    </ul>
+                </div>
+                <div class="col">
+                    <strong>Pesquisa científica</strong>
+                    <ul>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/pesquisas/concluidos"
+                                class="link-secondary">Pesquisas
+                                concluídas</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/pesquisas/andamento"
+                                class="link-secondary">Pesquisas
+                                em andamento</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/publicacoes"
+                                class="link-secondary">Publicações
+                                científicas</a></li>
+                        <li><a href="https://www.infraestruturameioambiente.sp.gov.br/pesm/pesquisa"
+                                class="link-secondary">Pesquise no
+                                PESM</a></li>
+                    </ul>
+                    <span class="col"></span>
+                    <strong><a
+                            href="https://www.infraestruturameioambiente.sp.gov.br/pesm/contato" class="link-dark">Contato</a></strong>
+                    <a href="#" target="_blank" class="link_app"><img
+                            src="https://www.infraestruturameioambiente.sp.gov.br/pesm/wp-content/themes/pesm/_imgs/app_download_ios.png"></a>
+                    <a href="https://play.google.com/store/apps/details?id=br.sp.gov.pesm&amp;hl=pt" target="_blank"
+                        class="link_app pos2"><img
+                            src="https://www.infraestruturameioambiente.sp.gov.br/pesm/wp-content/themes/pesm/_imgs/app_download_android.png"></a>
+                    <a href="#" target="_blank" class="link_app pos3"><img
+                            src="https://www.infraestruturameioambiente.sp.gov.br/pesm/wp-content/themes/pesm/_imgs/app_download_wp.png"></a>
+                </div>
+                <div class="col"><a href="http://fflorestal.sp.gov.br"><img
+                            src="https://www.infraestruturameioambiente.sp.gov.br/pesm/wp-content/themes/pesm/_imgs/fundacao_florestal.png"
+                            alt="Fundação Florestal"></a></div>
+                <a class="col" href="http://www.saopaulo.sp.gov.br"><img
+                        src="https://www.infraestruturameioambiente.sp.gov.br/pesm/wp-content/themes/pesm/_imgs/sp-gov-footer.png"></a>
+                <br clear="left">
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
