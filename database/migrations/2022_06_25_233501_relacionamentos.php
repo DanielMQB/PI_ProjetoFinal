@@ -14,24 +14,27 @@ return new class extends Migration
     public function up()
     {
         Schema::table('atrativos', function (Blueprint $table){
-            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
+            $table->foreignId('unidade_id')->constrained('unidades')->cascadeOnUpdate()->cascadeOnDelete();
+
         });
 
         Schema::table('ingressos', function (Blueprint $table){
-            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->ondelete('cascade');
+            $table->foreignId('unidade_id')->constrained('unidades')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
         });
 
         Schema::create('unidades_dias', function (Blueprint $table){
             $table->id();
-            $table->foreignId('unidade_id')->constrained('unidades')->ondelete('cascade');
-            $table->foreignId('dia_id')->constrained('dias')->ondelete('cascade');
+            $table->foreignId('unidade_id')->constrained('unidades')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('dia_id')->constrained('dias')->cascadeOnUpdate()->cascadeOnDelete();
         });
 
         Schema::create('atrativos_ingressos', function (Blueprint $table){
             $table->id();
-            $table->foreignId('atrativo_id')->constrained('atrativos')->ondelete('cascade');
-            $table->foreignId('ingresso_id')->constrained('ingressos')->ondelete('cascade');
+            $table->foreignId('atrativo_id')->constrained('atrativos')->cascadeOnUpdate()->cascadeOnDelete();
+
+            $table->foreignId('ingresso_id')->constrained('ingressos')->cascadeOnUpdate()->cascadeOnDelete();
+
         });
     }
 
