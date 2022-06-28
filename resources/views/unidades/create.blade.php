@@ -99,15 +99,15 @@
                 <h5 class="card-title">Nova Unidade</h5>
                 <form method="POST" action="{{ route('unidades.store') }}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <p>Nome da Unidade: <input class="shadow" type="text" name="nome" id="nome" placeholder="Digite aqui"
+                    <p>Nome da Unidade: <input type="text" name="nome" id="nome" placeholder="Digite aqui"
                             value="{{ old('nome') }}"></p>
-                    <p>Quantidade: <input class="shadow" type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
+                    <p>Quantidade: <input type="text" name="quantidade" id="quantidade" placeholder="Digite aqui"
                             value="{{ old('quantidade') }}"></p>
-                    <p>Valor do Ingresso: <input class="shadow" type="text" name="valorIngresso" id="valorIngresso"
+                    <p>Valor do Ingresso: <input type="text" name="valorIngresso" id="valorIngresso"
                             placeholder="Digite aqui" value="{{ old('valorIngresso') }}"></p>
-                    <p>Descrição: <input class="shadow" type="text" name="descricao" id="descricao" placeholder="Digite aqui"
+                    <p>Descrição: <input type="text" name="descricao" id="descricao" placeholder="Digite aqui"
                             value="{{ old('descricao') }}"></p>
-                    <p>Endereço: <input class="shadow" type="text" name="endereco" id="endereco" placeholder="Digite aqui"
+                    <p>Endereço: <input type="text" name="endereco" id="endereco" placeholder="Digite aqui"
                             value="{{ old('endereco') }}"></p>
                     <p>Dias de Funcionamento:
                         @foreach ($dias as $dia)

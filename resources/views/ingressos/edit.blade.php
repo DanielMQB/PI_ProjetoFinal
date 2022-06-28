@@ -8,10 +8,15 @@
     <title>Editar ingresso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,7 +33,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -94,7 +100,7 @@
     @endif
 
     <div class="container-fluid">
-        <div class="card" style="width: 25rem;">
+        <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
                 <h5 class="card-title">{{ $ingresso->nomeComprador }}</h5>
                 @if ($ingresso->tipoIngresso == 'VIP')
@@ -111,7 +117,8 @@
                             placeholder="Digite o tipo de ingresso" value="{{ $ingresso->tipoIngresso }}"></p>
                     <p>Nome do comprador: <input type="text" name="nomeComprador" id="nomeComprador"
                             placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
-                    <p>Data: <input type="date" name="data" id="data" value="{{ $ingresso->data }}"></p>
+                    <p>Data: <input type="date" name="data" id="data" value="{{ $ingresso->data }}">
+                    </p>
                     <div class="form-check form-switch">
                         <p>
                             <input class="form-check-input" type="checkbox" role="switch" id="status"
@@ -121,9 +128,9 @@
                     </div>
                     <div class="container-fluid">
                         <div class="row">
-                            <button class="card-link btn btn-success shadow col" style="margin-right: 1%"
+                            <button class="card-link btn shadow col" style="margin-right: 1%; background: #AED6F1"
                                 type="submit">Enviar</button>
-                            <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
+                            <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('ingressos.index') }}"
                                 role="button">Cancelar</a>
                         </div>
                     </div>

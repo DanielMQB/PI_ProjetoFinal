@@ -8,10 +8,15 @@
     <title>Detalhes do ingresso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,7 +33,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -87,7 +93,7 @@
 
     <hr>
     <div class="container-fluid">
-        <div class="card" style="width: 25rem;">
+        <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
                 <h5 class="card-title">{{ $atrativo->nome }}</h5>
                 <p class="card-text">
@@ -102,12 +108,12 @@
                 </p>
                 <div class="container">
                     <div class="row">
-                        <form class="col" action="{{route('atrativos.destroy', $atrativo->id)}}" method="POST">
+                        <form class="col" action="{{ route('atrativos.destroy', $atrativo->id) }}" method="POST">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="card-link btn btn-danger shadow" type="submit">Deletar atrativo</button>
                         </form>
-                        <a class="card-link btn btn-secondary shadow col" href="{{ route('atrativos.index') }}"
+                        <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('atrativos.index') }}"
                             role="button">Cancelar</a>
                     </div>
                 </div>

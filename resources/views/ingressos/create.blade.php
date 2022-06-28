@@ -8,10 +8,15 @@
     <title>Adicionar Ingresso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,7 +33,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -87,16 +93,16 @@
 
     <hr>
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid">
-        <div class="card" style="width: 25rem;">
+        <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
                 <h5 class="card-title">Novo Ingresso</h5>
                 <form method="POST" action="{{ route('ingressos.store') }}">
@@ -111,20 +117,21 @@
                             value="{{ old('data') }}"></p>
                     <p> Atrativos
                         @foreach ($atrativos as $atrativo)
-                        <div class="col-12">
-                            <div class="form-check">
-                              <input name="atrativos[]" value="{{$atrativo->id}}" class="form-check-input" type="checkbox" id="gridCheck">
-                              <label class="form-check-label" for="gridCheck">
-                                {{$atrativo->nome}}
-                              </label>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input name="atrativos[]" value="{{ $atrativo->id }}" class="form-check-input"
+                                        type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        {{ $atrativo->nome }}
+                                    </label>
+                                </div>
                             </div>
-                          </div>
                         @endforeach
                     </p>
 
                     <div class="row">
-                        <button class="card-link btn btn-primary shadow col" type="submit">Enviar</button>
-                        <a class="card-link btn btn-secondary shadow col" href="{{ route('ingressos.index') }}"
+                        <button class="card-link btn shadow col" style="background: #AED6F1" type="submit">Enviar</button>
+                        <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('ingressos.index') }}"
                             role="button">Cancelar</a>
                     </div>
                 </form>

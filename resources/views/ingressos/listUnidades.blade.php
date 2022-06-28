@@ -8,10 +8,15 @@
     <title>Adicionar Ingresso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -98,19 +103,20 @@
     @endif
     <div class="container-fluid">
 
-                <h5>SELECIONE A UNIDADE:</h5>
-                <div class="d-flex justify-content-between " style="gap:5px">
-                    @foreach ($unidades as $unidade)
-                        <div class="card shadow" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{$unidade->nome}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Valor: R${{$unidade->valorIngresso}},00 reais</h6>
-                                <p class="card-text">{{$unidade->descricao }}</p>
-                                <a href="{{route('ingressos.create',[$unidade->id])}}" class="card-link">SELECIONAR</a>
-                            </div>
-                        </div>
-                    @endforeach
+        <h5>SELECIONE A UNIDADE:</h5>
+        <div class="d-flex justify-content-between" style="gap:5px;">
+            @foreach ($unidades as $unidade)
+                <div class="card shadow" style="width: 18rem; background: #5DADE2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $unidade->nome }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Valor: R${{ $unidade->valorIngresso }},00 reais
+                        </h6>
+                        <p class="card-text">{{ $unidade->descricao }}</p>
+                        <a class="btn shadow col" style="background: #AED6F1" href="{{ route('ingressos.create', [$unidade->id]) }}" class="card-link">SELECIONAR</a>
+                    </div>
                 </div>
+            @endforeach
+        </div>
 
     </div>
 

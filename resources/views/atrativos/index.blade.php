@@ -8,10 +8,15 @@
     <title>Ingressos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        body {
+            background: #D6EAF8;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-secondary shadow sticky-top">
+    <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
             <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,7 +33,8 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a href="{{ route('ingressos.index') }}" class="dropdown-item">Lista de Ingressos</a>
                             </li>
-                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar Ingresso</a>
+                            <li><a href="{{ route('ingresso.unidades') }}" class="dropdown-item">Adicionar
+                                    Ingresso</a>
                             </li>
                         </ul>
                     </li>
@@ -109,7 +115,7 @@
         <div>
             <p>
             <table class="table table-hover">
-                <thead style="background-color: #F4F6F7">
+                <thead class="shadow-lg" style="background-color: #5DADE2">
                     <tr>
                         <th scope="col" class="h4" style="text-align: center">ID</th>
                         <th scope="col" class="h4" style="text-align: left">Nome do Atrativo</th>
@@ -128,10 +134,10 @@
                             <td class="col h3" style="text-align: center">{{ $atrativo->capacidade }}</td>
                             <td class="col h3" style="text-align: center">{{ $atrativo->unidade_id }}</td>
                             <td class="col" style="text-align: center">
-                                <a class="btn btn-light shadow-sm"
+                                <a class="btn shadow-sm" style="background: #AED6F1"
                                     href="{{ route('atrativos.show', $atrativo->id) }}" role="button"
                                     style="text-align: center">Ver detalhes</a>
-                                <a class="btn btn-light shadow-sm"
+                                <a class="btn shadow-sm" style="background: #AED6F1"
                                     href="{{ route('atrativos.edit', $atrativo->id) }}" role="button"
                                     style="text-align: center">Editar</a>
                             </td>
