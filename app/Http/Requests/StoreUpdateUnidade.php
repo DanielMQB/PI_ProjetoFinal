@@ -26,7 +26,7 @@ class StoreUpdateUnidade extends FormRequest
         return [
             'nome' => 'required | max:60 | min:5',
             'quantidade' => 'required | integer',
-            'valorIngresso' => 'required | integer',
+            'valorIngresso' => 'required | numeric',
             'descricao' => 'required | max:250 | min:5',
             'endereco' => 'required | max:250 | min:5'
         ];
