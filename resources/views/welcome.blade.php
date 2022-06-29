@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><b>Fundação FLorestal</b></a>
+            <a class="navbar-brand" href="/"><b>Fundação Florestal</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
