@@ -132,7 +132,7 @@
                                 </p>
                     <p>Capacidade: <input type="text" name="capacidade" id="capacidade"
                             placeholder="Digite a capacidade" value="{{ $atrativo->capacidade }}"></p>
-                    <p>Duracao: <input type="text" name="duracao" id="duracao" placeholder="Digite a duração"
+                    <p>Duracao  (Horas): <input type="text" name="duracao" id="duracao" placeholder="Digite a duração"
                             value="{{ $atrativo->duracao }}"></p>
                     <p>Descricao: <input type="text" name="descricao" id="descricao"
                             placeholder="Digite a descricao" value="{{ $atrativo->descricao }}"></p>

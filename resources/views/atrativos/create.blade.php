@@ -133,7 +133,7 @@
                             placeholder="Digite aqui" value="{{ old('observacoes') }}"></p>
                     <p>Capacidade: <input type="text" name="capacidade" id="capacidade" placeholder="Digite aqui"
                             value="{{ old('capacidade') }}"></p>
-                    <p>Duração: <input type="text" name="duracao" id="duracao"
+                    <p>Duração (Horas): <input type="text" name="duracao" id="duracao"
                             placeholder="Digite aqui (horas)" value="{{ old('duracao') }}"></p>
                     <p>Unidade: <select class="shadow" name="unidade_id" id="unidade_id">
                             <option class="shadow" value="" selected>Selecione um parque</option>

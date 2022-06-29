@@ -26,7 +26,7 @@ class StoreUpdateAtrativo extends FormRequest
         return [
             'nome' => 'required',
             'descricao' => 'required | max:250',
-            'duracao' => 'required | Integer',
+            'duracao' => 'required | numeric',
             'tipo'=> 'required | max:30',
             'capacidade' => 'required | Integer',
             'observacoes' => 'max:250',
