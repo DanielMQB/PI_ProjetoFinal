@@ -24,7 +24,13 @@ class StoreUpdateAtrativo extends FormRequest
     public function rules()
     {
         return [
-            'unidade_id' => 'required'
+            'nome' => 'required',
+            'descricao' => 'required | max:250',
+            'duracao' => 'required | Integer',
+            'tipo'=> 'required | max:30',
+            'capacidade' => 'required | Integer',
+            'observacoes' => 'max:250',
+            'unidade_id' => 'required | Integer'
         ];
     }
 }
