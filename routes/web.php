@@ -24,10 +24,7 @@ use Illuminate\Support\Facades\Redirect;
 */
 
 // Indice de unidades
-Route::get('/unidades',[UnidadeController::class,'index'])->name('unidades.index');
-
-
-
+Route::get('/unidades',[UnidadeController::class,'index'])->name('unidades.index')->middleware(['auth']);;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,21 +36,20 @@ Route::get('/dashboard', function () {
 
 //Rotas de usuário
 //--------------------------INDEX----------------------
-Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios',[UsuarioController::class, 'index'])->name('usuarios.index')->middleware(['auth']);
 
 //--------------------SHOW---------------
-Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuarios.show');
+Route::get ('/usuarios/{id}',[UsuarioController::class, 'show'])->name('usuarios.show')->middleware(['auth']);
 
 //----------------------DESTROYYY--------------------
-Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy')->middleware(['auth']);
 
 //-------------------------EDIT-------------------------------------------
 
-Route::get('/usuarios/edit/{id}',[UsuarioController::class, 'edit'])-> name('usuarios.edit');
+Route::get('/usuarios/edit/{id}',[UsuarioController::class, 'edit'])-> name('usuarios.edit')->middleware(['auth']);
 
 //------------------------UPDATE --------------------------
-Route::put('/usuarios/{id}',[UsuarioController::class, 'update'])->name('usuarios.update');
-
+Route::put('/usuarios/{id}',[UsuarioController::class, 'update'])->name('usuarios.update')->middleware(['auth']);
 require __DIR__ . '/auth.php';
 
 
@@ -63,8 +59,8 @@ Route::resource('/ingressos', IngressoController::class)
             return Redirect::route('ingressos.index');
         })->except(['create'])->middleware(['auth']);
 
-Route::get('/ingresso/unidades', [IngressoController::class,'getUnidades'])->name('ingresso.unidades');
-Route::get('/ingressos/create/{unidade_id}', [IngressoController::class,'create'])->name('ingressos.create');
+Route::get('/ingresso/unidades', [IngressoController::class,'getUnidades'])->middleware(['auth'])->name('ingresso.unidades');
+Route::get('/ingressos/create/{unidade_id}', [IngressoController::class,'create'])->name('ingressos.create')->middleware(['auth']);
 
 //Rotas de Atrativos
 Route::resource('/atrativos', AtrativoController::class)

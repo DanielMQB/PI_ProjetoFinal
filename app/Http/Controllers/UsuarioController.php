@@ -18,7 +18,7 @@ class UsuarioController extends Controller
     if(!$usuario){
         return redirect()
             ->route('usuarios.index')
-            ->with('message','Usuario não foi Encontrado!!!!!!!!!!!!!');
+            ->with('message','Usuario não foi Encontrado!');
 
     }
     return view('usuarios.show',compact('usuario'));

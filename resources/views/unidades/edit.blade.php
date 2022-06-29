@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg shadow sticky-top" style="background: #A3E4D7">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><b>Parque da Serra do Mar</b></a>
+            <a class="navbar-brand" href="/"><b>Fundação FLorestal</b></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -72,7 +72,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Dashboard
+                                Acesso
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a href="{{ route('login') }}" class="dropdown-item">Login</a></li>
@@ -94,9 +94,13 @@
     <hr>
 
     @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
 
     <div class="container-fluid">
