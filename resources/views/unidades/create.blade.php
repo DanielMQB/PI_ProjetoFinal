@@ -91,6 +91,16 @@
 
     <h1 class="container-fluid">Adicionar nova unidade</h1>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <hr>
 
     <div class="container-fluid">
@@ -125,9 +135,10 @@
 
                     </p>
                     <div class="row">
-                        <button class="card-link btn shadow col" style="background: #AED6F1" type="submit">Enviar</button>
-                        <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('unidades.index') }}"
-                            role="button">Cancelar</a>
+                        <button class="card-link btn shadow col" style="background: #AED6F1"
+                            type="submit">Enviar</button>
+                        <a class="card-link btn shadow col" style="background: #AED6F1"
+                            href="{{ route('unidades.index') }}" role="button">Cancelar</a>
                     </div>
                 </form>
             </div>

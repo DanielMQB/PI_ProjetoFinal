@@ -92,6 +92,7 @@
     <h1 class="container-fluid">Adicionar novo ingresso</h1>
 
     <hr>
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -101,6 +102,7 @@
             </ul>
         </div>
     @endif
+
     <div class="container-fluid">
         <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
