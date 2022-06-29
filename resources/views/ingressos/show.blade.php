@@ -95,16 +95,22 @@
     <div class="container-fluid">
         <div class="card shadow" style="width: 25rem; background: #5DADE2">
             <div class="card-body">
-                <h5 class="card-title">{{ $ingresso->nomeComprador }}</h5>
+                <h5 class="card-title fw-bold">{{ $ingresso->nomeComprador }}</h5>
                 @if ($ingresso->tipoIngresso == 'VIP')
-                    <h6 class="card-subtitle mb-2 text-warning">{{ $ingresso->tipoIngresso }}</h6>
+                    <h6 class="card-subtitle mb-2 text-warning fw-bold">{{ $ingresso->tipoIngresso }}</h6>
                 @else
-                    <h6 class="card-subtitle mb-2 text-muted">{{ $ingresso->tipoIngresso }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted fw-bold">{{ $ingresso->tipoIngresso }}</h6>
                 @endif
                 <p class="card-text">
                 <ul>
                     <li>Quantidade: {{ $ingresso->quantidade }}</li>
-                    <li>Parque (ID): {{ $ingresso->unidade_id }}</li>
+                    <li>Unidade: {{ $ingresso->unidade_id }}</li>
+                    <li>Data: {{ $ingresso->data }}</li>
+                    @if ($ingresso->status == 1)
+                        <li>Validade: <span class="fw-bold" style="color: green">VALIDO</span></li>
+                    @else
+                        <li>Validade: <span class="fw-bold" style="color: red">INVALIDO</span></li>
+                    @endif
                 </ul>
                 </p>
                 <div class="container">
@@ -114,8 +120,8 @@
                             <input type="hidden" name="_method" value="DELETE">
                             <button class="card-link btn btn-danger shadow" type="submit">Deletar Ingresso</button>
                         </form>
-                        <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('ingressos.index') }}"
-                            role="button">Cancelar</a>
+                        <a class="card-link btn shadow col" style="background: #AED6F1"
+                            href="{{ route('ingressos.index') }}" role="button">Cancelar</a>
                     </div>
                 </div>
             </div>

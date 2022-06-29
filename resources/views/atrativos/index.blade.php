@@ -101,52 +101,53 @@
 
     <br>
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <div class="container-fluid">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <div>
-            <p>
-            <table class="table table-hover">
-                <thead class="shadow-lg" style="background-color: #5DADE2">
+        <table class="table table-hover">
+            <thead class="shadow-lg" style="background-color: #5DADE2">
+                <tr>
+                    <th scope="col" class="h4" style="text-align: center">ID</th>
+                    <th scope="col" class="h4" style="text-align: left">Nome do Atrativo</th>
+                    <th scope="col" class="h4" style="text-align: center">Tipo</th>
+                    <th scope="col" class="h4" style="text-align: center">Capacidade</th>
+                    <th scope="col" class="h4" style="text-align: center">Unidade</th>
+                    <th scope="col" class="h4" style="text-align: center">Observações</th>
+                    <th scope="col" class="h4" style="text-align: center">Duração</th>
+                    <th scope="col" class="h4" style="text-align: center">Opções</th>
+                </tr>
+            </thead>
+            @foreach ($atrativos as $atrativo)
+                <tbody>
                     <tr>
-                        <th scope="col" class="h4" style="text-align: center">ID</th>
-                        <th scope="col" class="h4" style="text-align: left">Nome do Atrativo</th>
-                        <th scope="col" class="h4" style="text-align: center">Tipo</th>
-                        <th scope="col" class="h4" style="text-align: center">Capacidade</th>
-                        <th scope="col" class="h4" style="text-align: center">Unidade de Conservação</th>
-                        <th scope="col" class="h4" style="text-align: center">Opções</th>
+                        <th scope="col" class="h3" style="text-align: center">{{ $atrativo->id }}</th>
+                        <td class="col h3" style="text-align: left">{{ $atrativo->nome }}</td>
+                        <td class="col h3" style="text-align: center">{{ $atrativo->tipo }}</td>
+                        <td class="col h3" style="text-align: center">{{ $atrativo->capacidade }}</td>
+                        <td class="col h3" style="text-align: center">{{ $atrativo->unidade_id }}</td>
+                        <td class="col h3" style="text-align: center">{{ $atrativo->observacoes }}</td>
+                        <td class="col h3" style="text-align: center">{{ $atrativo->duracao }} horas</td>
+                        <td class="col" style="text-align: center">
+                            <a class="btn shadow-sm" style="background: #AED6F1"
+                                href="{{ route('atrativos.show', $atrativo->id) }}" role="button"
+                                style="text-align: center">Ver detalhes</a>
+                            <a class="btn shadow-sm" style="background: #AED6F1"
+                                href="{{ route('atrativos.edit', $atrativo->id) }}" role="button"
+                                style="text-align: center">Editar</a>
+                        </td>
+
                     </tr>
-                </thead>
-                @foreach ($atrativos as $atrativo)
-                    <tbody>
-                        <tr>
-                            <th scope="col" class="h3" style="text-align: center">{{ $atrativo->id }}</th>
-                            <td class="col h3" style="text-align: left">{{ $atrativo->nome }}</td>
-                            <td class="col h3" style="text-align: center">{{ $atrativo->tipo }}</td>
-                            <td class="col h3" style="text-align: center">{{ $atrativo->capacidade }}</td>
-                            <td class="col h3" style="text-align: center">{{ $atrativo->unidade_id }}</td>
-                            <td class="col" style="text-align: center">
-                                <a class="btn shadow-sm" style="background: #AED6F1"
-                                    href="{{ route('atrativos.show', $atrativo->id) }}" role="button"
-                                    style="text-align: center">Ver detalhes</a>
-                                <a class="btn shadow-sm" style="background: #AED6F1"
-                                    href="{{ route('atrativos.edit', $atrativo->id) }}" role="button"
-                                    style="text-align: center">Editar</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                @endforeach
-            </table>
-            </p>
-        </div>
+                </tbody>
+            @endforeach
+        </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

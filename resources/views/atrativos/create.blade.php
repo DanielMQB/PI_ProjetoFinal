@@ -134,7 +134,7 @@
                     <p>Capacidade: <input type="text" name="capacidade" id="capacidade" placeholder="Digite aqui"
                             value="{{ old('capacidade') }}"></p>
                     <p>Duração: <input type="text" name="duracao" id="duracao"
-                            placeholder="Digite aqui (minutos)" value="{{ old('duracao') }}"></p>
+                            placeholder="Digite aqui (horas)" value="{{ old('duracao') }}"></p>
                     <p>Unidade: <select class="shadow" name="unidade_id" id="unidade_id">
                             <option class="shadow" value="" selected>Selecione um parque</option>
                             @foreach ($unidades as $unidade)
