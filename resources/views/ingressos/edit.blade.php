@@ -123,13 +123,22 @@
                             placeholder="Digite o nome do comprador" value="{{ $ingresso->nomeComprador }}"></p>
                     <p>Data: <input type="date" name="data" id="data" value="{{ $ingresso->data }}">
                     </p>
-                    <div class="form-check form-switch">
-                        <p>
-                            <input class="form-check-input" type="checkbox" role="switch" id="status"
-                                name="status" value="{{ $ingresso->status }}" checked>
-                            <label class="form-check-label" for="status">Ingresso válido</label>
+                    <p>Status:
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status"
+                                value="1">
+                            <label class="form-check-label" for="status">
+                                Válido
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="status"
+                                value="0">
+                            <label class="form-check-label" for="status">
+                                Inválido
+                            </label>
+                        </div>
                         </p>
-                    </div>
                     <div class="container-fluid">
                         <div class="row">
                             <button class="card-link btn shadow col" style="margin-right: 1%; background: #AED6F1"

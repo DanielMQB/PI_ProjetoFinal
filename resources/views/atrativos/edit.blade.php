@@ -114,8 +114,22 @@
                     @csrf
                     <p>Nome do Atrativo: <input type="text" name="nome" id="nome" placeholder="Digite o nome"
                             value="{{ $atrativo->nome }}"></p>
-                    <p>Tipo de atrativo: <input type="text" name="tipoAtrativo" id="tipoAtrativo"
-                            placeholder="Digite o tipo de atrativo" value="{{ $atrativo->tipo }}"></p>
+                            <p>Tipo de visita:
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipo"
+                                        value="Monitorada">
+                                    <label class="form-check-label" for="tipo">
+                                        Monitorada
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipo" id="tipo"
+                                        value="Auto-guiada">
+                                    <label class="form-check-label" for="tipo">
+                                        Auto-guiada
+                                    </label>
+                                </div>
+                                </p>
                     <p>Capacidade: <input type="text" name="capacidade" id="capacidade"
                             placeholder="Digite a capacidade" value="{{ $atrativo->capacidade }}"></p>
                     <p>Duracao: <input type="text" name="duracao" id="duracao" placeholder="Digite a duração"
