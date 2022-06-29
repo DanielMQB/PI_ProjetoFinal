@@ -118,12 +118,13 @@
                             placeholder="Digite a descricao" value="{{ $atrativo->descricao }}"></p>
                     <p>Observações: <input type="text" name="observacoes" id="observacoes"
                             placeholder="Digite as observacoes" value="{{ $atrativo->observacoes }}"></p>
+                    <input type="hidden" name="unidade_id" id="unidade_id" value="{{$atrativo->unidade_id}}">
                     <div class="container-fluid">
                         <div class="row">
                             <button class="card-link btn shadow col" style="margin-right: 1%; background: #AED6F1"
                                 type="submit">Enviar</button>
-                            <a class="card-link btn shadow col" style="background: #AED6F1" href="{{ route('atrativos.index') }}"
-                                role="button">Cancelar</a>
+                            <a class="card-link btn shadow col" style="background: #AED6F1"
+                                href="{{ route('atrativos.index') }}" role="button">Cancelar</a>
                         </div>
                     </div>
                 </form>

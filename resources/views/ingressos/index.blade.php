@@ -118,6 +118,7 @@
                         <th scope="col" class="h4" style="text-align: center">Tipo de Ingresso</th>
                         <th scope="col" class="h4" style="text-align: center">Quantidade</th>
                         <th scope="col" class="h4" style="text-align: center">Data</th>
+                        <th scope="col" class="h4" style="text-align: center">Unidade</th>
                         <th scope="col" class="h4" style="text-align: center">Opções</th>
                     </tr>
                 </thead>
@@ -134,6 +135,7 @@
                             @endif
                             <td class="col h3" style="text-align: center">{{ $ingresso->quantidade }}</td>
                             <td class="col h3" style="text-align: center">{{ $ingresso->data }}</td>
+                            <td class="col h3" style="text-align: center">{{ $ingresso->unidade_id }}</td>
                             <td class="col" style="text-align: center">
                                 <a class="btn shadow-sm" style="background: #AED6F1"
                                     href="{{ route('ingressos.show', $ingresso->id) }}" role="button"

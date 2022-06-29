@@ -98,11 +98,11 @@
                 <h5 class="card-title">{{ $atrativo->nome }}</h5>
                 <p class="card-text">
                 <ul>
-                    <li>Capacidade: {{ $atrativo->capacidade }}</li>
+                    <li>Capacidade: {{ $atrativo->capacidade }} pessoas</li>
                     <li>Atrativo: {{ $atrativo->id }}</li>
                     <li>Descrição: {{ $atrativo->descricao }}</li>
                     <li>Observações: {{ $atrativo->observacoes }}</li>
-                    <li>Duração: {{ $atrativo->duracao }}</li>
+                    <li>Duração: {{ $atrativo->duracao }} horas</li>
                     <li>Tipo: {{ $atrativo->tipo }}</li>
                 </ul>
                 </p>
